@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b1xkv2663ydya"]
+
+[ext_resource type="Script" uid="uid://cjyl0grossbis" path="res://game_over.gd" id="1_y26ei"]
+
+[node name="GameOver" type="Control" unique_id=272180800]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y26ei")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1790389726]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -23.5
+offset_right = 4.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1352804302]
+layout_mode = 2
+text = "Game Over"
+
+[node name="RetryButton" type="Button" parent="VBoxContainer" unique_id=372270844]
+layout_mode = 2
+text = "Retry Level"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=625107915]
+layout_mode = 2
+text = "Quit to Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

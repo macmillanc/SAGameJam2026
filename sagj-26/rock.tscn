@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://p3bo1d76iv03"]
+
+[ext_resource type="Script" uid="uid://bo7mn8dny4xgq" path="res://rock_movement.gd" id="1_68h2w"]
+[ext_resource type="Texture2D" uid="uid://c86x8w0al1hcc" path="res://assets/rock/stage - 1/rock_placeholder.png" id="2_wecdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46y1q"]
+size = Vector2(22, 18)
+
+[node name="Node2D" type="Node2D" unique_id=1025934399]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1357846045]
+script = ExtResource("1_68h2w")
+game_over_scene = "uid://b1xkv2663ydya"
+
+[node name="RockPlaceholder" type="Sprite2D" parent="CharacterBody2D" unique_id=965381584]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_wecdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1103355537]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_46y1q")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=694843621]
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
