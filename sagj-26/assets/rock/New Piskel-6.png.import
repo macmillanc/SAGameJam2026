@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c86x8w0al1hcc"
-path="res://.godot/imported/rock_placeholder.png-b05ae235ece5584825a1b71a8a6e01c3.ctex"
+uid="uid://ds6otngskbbbw"
+path="res://.godot/imported/New Piskel-6.png-66898267ad87241d38dd34955076bab8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rock/stage - 1/rock_placeholder.png"
-dest_files=["res://.godot/imported/rock_placeholder.png-b05ae235ece5584825a1b71a8a6e01c3.ctex"]
+source_file="res://assets/rock/New Piskel-6.png"
+dest_files=["res://.godot/imported/New Piskel-6.png-66898267ad87241d38dd34955076bab8.ctex"]
 
 [params]
 

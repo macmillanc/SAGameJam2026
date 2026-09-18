@@ -2,9 +2,9 @@ extends TileMapLayer
 
 func _ready():
 	add_to_group("season_objects")
-	update_season()
+	update_grass()
 
-func update_season():
+func update_grass():
 	var shader_material: ShaderMaterial = self.material as ShaderMaterial
 
 	if shader_material:
