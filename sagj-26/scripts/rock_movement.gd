@@ -66,3 +66,27 @@ func game_over() -> void:
 	else:
 		# Safety fallback in case the scene isn't created or assigned yet
 		get_tree().reload_current_scene() 
+
+var changing_season = false
+
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_I:
+			if not changing_season:
+				change_season()
+
+
+func change_season():
+	changing_season = true
+
+	var target_season = (Global.season + 1) % 4
+
+	for i in range(12):
+		Global.season = (Global.season + 1) % 4
+		get_tree().call_group("season_objects", "update_season")
+		await get_tree().create_timer(0.075).timeout
+
+	Global.season = target_season
+	get_tree().call_group("season_objects", "update_season")
+
+	changing_season = false

@@ -10,12 +10,12 @@ The bigger u are, the further u roll (higher score)
 
 
 Structure: Levels
-Levels: 10 (to start with)
+Levels: 10
 Levels are in a story line
 Leaderboard for each level
 
 
-Controls: AD + Jump
+Controls: AD + Jump 
 1 Button that changes the season but loses 1 size point
 
 
@@ -39,22 +39,51 @@ Some friendly rock people
 
 Story:
 
-Ur a big rock and u get separated from ur other big rock people
-Ur goal is to find ur rock people
+Ur a big rock and u get separated from ur other big rock people (on a cloud)
+Ur goal is to find ur rock people (and roll down hills to complete levels)
+The level selector is a map where u slowly get closer to the final level
+U meet other rock people on the way who tell u where to go next / other tips
+Eventually u get reuinited with ur rock family (da end)
 
 
 
 Order of importance:
 
-1) Design the character (rolling stuff)
-2) Make a tile map
+1) Design the character ✓ 
+1.5) Animate the character
+1.75) Make the character fall apart
+2) Make a tile map ✓
+2.5) Make skyboxes which evolve with time
+2.75) Replace falling off the map with something else depending on the level
 3) Design maps + level selector
-4) Design season changing
+4) Design season changing ✓ 
 5) Design end of level rolling cutscene + leaderboard
 6) Design static obstacles (don't change with weather only with size)
+6.5) Add "key" doors which require u to get a certain key to open them
 7) Design non-static obstacles (change with time)
 8) Add weather
 9) Add story
 10) Add NPC's
 11) Add ending + start stuff + tutorial 
 
+
+
+Level Outline:
+
+Level 1 - Tutorial (Floating islands):
+
+Level has some pretty easy platforming to start with (with prompts for the controls to move and jump)
+Level then has 2 wood panels to roll through (1 of which takes 2 hits to destroy)
+Level then has small gap (size 4) (prompts how to change time)
+Inside the gap there is a metal door (size 3) which falls apart in time
+Then a choice between another metal door and a more difficult platforming route
+There is then a final platforming segment across the floating islands until u reach a cloud (end of the level)
+If u progress time with the door the platforming afterwards becomes more difficult as islands start to fall when u stand on them
+
+If u reach 0 size all of the islands fall around u in a cutscene and u get a game over
+
+Skybox events:
+
+Skybox starts out in the clouds with floating islands all around
+As the time is changed the islands slowly start to fall
+As time progresses the islands fall faster and faster
