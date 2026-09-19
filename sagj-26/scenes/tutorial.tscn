@@ -140,4 +140,4 @@ tile_set = SubResource("TileSet_gbqnl")
 [node name="Rock_Scene" parent="." unique_id=1025934399 instance=ExtResource("2_yb1ct")]
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("7_gbqnl")]
-position = Vector2(161, 1)
+position = Vector2(250, -1)
