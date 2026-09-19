@@ -46,11 +46,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_I and not changing_season:
-			change_season()
-		if event.pressed and event.keycode == KEY_J:
-			scale_time(2.0, 0.5);
+	if event.is_action_pressed("change_season") and not changing_season:
+		change_season()
+
+	if event.is_action_pressed("slow_time"):
+		scale_time(2.0, 0.5)
 
 
 func apply_gravity(delta: float) -> void:

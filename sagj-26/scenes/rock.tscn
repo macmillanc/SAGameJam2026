@@ -17,6 +17,7 @@ radius = 25.0
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1357846045]
 script = ExtResource("1_vqvgd")
 stage_textures = Array[Texture2D]([ExtResource("2_mek2u"), ExtResource("3_vqvgd"), ExtResource("4_rmkyt"), ExtResource("5_h6o6c"), ExtResource("6_88vqh")])
+game_over_scene = "uid://b1xkv2663ydya"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1103355537]
 shape = SubResource("CircleShape2D_ik6fu")
