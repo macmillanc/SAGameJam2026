@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://c41x3f5rj1r2f"]
 
 [ext_resource type="Texture2D" uid="uid://cfkg8ltl1uwwp" path="res://assets/npc/moss_guy.png" id="1_nh2m4"]
+[ext_resource type="Script" uid="uid://cldjblqo36vx2" path="res://scripts/npc.gd" id="1_rv78h"]
+[ext_resource type="PackedScene" uid="uid://cnu8sgdtxnun3" path="res://scenes/interaction_area.tscn" id="2_abqhh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdvrb"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdvrb"]
+radius = 39.0
+
 [node name="Npc" type="CharacterBody2D" unique_id=403265676]
+script = ExtResource("1_rv78h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740081047]
 shape = SubResource("CapsuleShape2D_vdvrb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078150850]
 texture = ExtResource("1_nh2m4")
+
+[node name="InteractionArea" parent="." unique_id=638363577 instance=ExtResource("2_abqhh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1639015301]
+shape = SubResource("CircleShape2D_vdvrb")
