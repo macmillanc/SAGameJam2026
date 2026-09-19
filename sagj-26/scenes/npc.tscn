@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c41x3f5rj1r2f"]
+
+[ext_resource type="Texture2D" uid="uid://cfkg8ltl1uwwp" path="res://assets/npc/moss_guy.png" id="1_nh2m4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdvrb"]
+
+[node name="Npc" type="CharacterBody2D" unique_id=403265676]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740081047]
+shape = SubResource("CapsuleShape2D_vdvrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078150850]
+texture = ExtResource("1_nh2m4")
