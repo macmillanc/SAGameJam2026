@@ -1,29 +1,43 @@
 [gd_scene format=3 uid="uid://p3bo1d76iv03"]
 
-[ext_resource type="Script" uid="uid://bo7mn8dny4xgq" path="res://scripts/rock_movement.gd" id="1_68h2w"]
+[ext_resource type="Script" uid="uid://bgbw0hxbrdyc6" path="res://scripts/Controller.gd" id="1_vqvgd"]
 [ext_resource type="Texture2D" uid="uid://car1lkr2jcf6" path="res://assets/rock/New Piskel-3.png" id="2_mek2u"]
 [ext_resource type="Texture2D" uid="uid://e17qtfa4jtav" path="res://assets/rock/New Piskel-4.png" id="3_vqvgd"]
 [ext_resource type="Texture2D" uid="uid://dmv8xkpj4316r" path="res://assets/rock/New Piskel-5.png" id="4_rmkyt"]
 [ext_resource type="Texture2D" uid="uid://ds6otngskbbbw" path="res://assets/rock/New Piskel-6.png" id="5_h6o6c"]
 [ext_resource type="Texture2D" uid="uid://cdgr4w8hdo02g" path="res://assets/rock/New Piskel-7.png" id="6_88vqh"]
+[ext_resource type="Script" uid="uid://b2uo3t5eps23q" path="res://scripts/StateMachine.gd" id="7_galge"]
+[ext_resource type="Script" uid="uid://c6pde3lk8drr0" path="res://scripts/idle.gd" id="8_b84md"]
+[ext_resource type="Script" uid="uid://drn4wv0f1sem4" path="res://scripts/roll.gd" id="9_pdvy2"]
+[ext_resource type="Script" uid="uid://dnxmohm1pwtp8" path="res://scripts/air.gd" id="10_8c0lt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 radius = 25.0
 
-[node name="Node2D" type="Node2D" unique_id=1025934399]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1357846045]
-script = ExtResource("1_68h2w")
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1357846045]
+script = ExtResource("1_vqvgd")
 stage_textures = Array[Texture2D]([ExtResource("2_mek2u"), ExtResource("3_vqvgd"), ExtResource("4_rmkyt"), ExtResource("5_h6o6c"), ExtResource("6_88vqh")])
-game_over_scene = "uid://b1xkv2663ydya"
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=965381584]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1103355537]
+shape = SubResource("CircleShape2D_ik6fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=965381584]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_mek2u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1103355537]
-shape = SubResource("CircleShape2D_ik6fu")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=694843621]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=694843621]
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
+
+[node name="States" type="Node2D" parent="." unique_id=1025934399 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_galge")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="States" unique_id=1489356747]
+script = ExtResource("8_b84md")
+
+[node name="Roll" type="Node2D" parent="States" unique_id=53504859]
+script = ExtResource("9_pdvy2")
+
+[node name="Air" type="Node2D" parent="States" unique_id=1745461648]
+script = ExtResource("10_8c0lt")
