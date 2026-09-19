@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://db5ydef25yfl7"]
 
 [ext_resource type="Shader" uid="uid://ckwwukkin508o" path="res://scenes/grass.gdshader" id="1_cq4me"]
+[ext_resource type="PackedScene" uid="uid://d2f5wsaad13a2" path="res://scenes/crate.tscn" id="2_ckvwl"]
 [ext_resource type="Script" uid="uid://k1q2pafq7122" path="res://scripts/Grass.gd" id="2_ehuit"]
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="2_yb1ct"]
 [ext_resource type="Texture2D" uid="uid://b5gqt4bvu4440" path="res://assets/ground/common_dirt.png" id="3_ckvwl"]
 [ext_resource type="Texture2D" uid="uid://7p3jekdxxxud" path="res://assets/decor/level_1/Floating_rocks.png" id="5_6yjpi"]
-[ext_resource type="Texture2D" uid="uid://b3t7fsn5cp3ah" path="res://assets/obstacles/Crates.png" id="5_ckvwl"]
 [ext_resource type="Texture2D" uid="uid://bwanoba6p3cbf" path="res://assets/decor/grass/grass.png" id="5_nlqja"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="7_gbqnl"]
 
@@ -20,23 +20,6 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_cq4me"]
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_6yjpi")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ckvwl"]
-texture = ExtResource("5_ckvwl")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-
-[sub_resource type="TileSet" id="TileSet_a1q3g"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ckvwl")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlqja"]
 texture = ExtResource("3_ckvwl")
@@ -119,9 +102,16 @@ tile_set = SubResource("TileSet_cq4me")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=1126796305]
 
-[node name="Wood_crates" type="TileMapLayer" parent="Obstacles" unique_id=1824041109]
-tile_map_data = PackedByteArray("AAABAAAAAAABAAAAAAACAAAAAAAAAAEAAAACAP//AAABAAEAAAD9/wAAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_a1q3g")
+[node name="crate" parent="Obstacles" unique_id=429667971 instance=ExtResource("2_ckvwl")]
+position = Vector2(-129, -135)
+current_stage = 2
+
+[node name="crate2" parent="Obstacles" unique_id=2089699423 instance=ExtResource("2_ckvwl")]
+position = Vector2(115, -83)
+current_stage = 1
+
+[node name="crate3" parent="Obstacles" unique_id=1166608137 instance=ExtResource("2_ckvwl")]
+position = Vector2(97, -274)
 
 [node name="Ground_Map" type="TileMapLayer" parent="." unique_id=517998399]
 tile_map_data = PackedByteArray("AAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQADAAAAAAADAAEAAQADAAAAAAD+/wEAAQABAAAAAAD9/wEAAQADAAAAAAD8/wEAAQADAAAAAAD8/wIAAQAAAAEAAAD9/wIAAQADAAEAAAD+/wIAAQAAAAEAAAD//wIAAQAAAAEAAAAAAAIAAQADAAEAAAABAAIAAQADAAEAAAACAAIAAQAAAAEAAAADAAIAAQAAAAEAAAD7/wIAAQAAAAEAAAAEAAIAAQAAAAEAAAAFAAIAAQAAAAEAAAAGAAIAAQAAAAEAAAAHAAIAAQAAAAEAAAAIAAIAAQAAAAEAAAAJAAIAAQAAAAEAAAD6/wMAAQAAAAEAAAD7/wMAAQAAAAEAAAD8/wMAAQAAAAEAAAD9/wMAAQAAAAEAAAD+/wMAAQAAAAEAAAD//wMAAQAAAAEAAAAAAAMAAQAAAAEAAAABAAMAAQADAAEAAAACAAMAAQADAAEAAAADAAMAAQADAAEAAAAEAAMAAQADAAEAAAAFAAMAAQAAAAEAAAAGAAMAAQAAAAEAAAAHAAMAAQAAAAEAAAAIAAMAAQAAAAEAAAAJAAMAAQAAAAEAAAD6/wQAAQAAAAIAAAD7/wQAAQAAAAIAAAD8/wQAAQAAAAIAAAD9/wQAAQACAAIAAAD+/wQAAQACAAIAAAD//wQAAQACAAIAAAAAAAQAAQAAAAIAAAABAAQAAQAAAAIAAAACAAQAAQAAAAIAAAADAAQAAQADAAIAAAAEAAQAAQADAAIAAAAFAAQAAQADAAIAAAAGAAQAAQAAAAIAAAAHAAQAAQAAAAIAAAAIAAQAAQAAAAIAAAAJAAQAAQAAAAIAAAD6/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAAEAAEAAQADAAAAAAAFAAEAAQADAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAD6/wIAAQAAAAEAAAAOAAIAAQAAAAAAAAAPAAIAAQABAAAAAAAQAAIAAQAAAAAAAAARAAIAAQABAAAAAAASAAIAAQADAAAAAAATAAIAAQAAAAAAAAAOAAMAAQAAAAEAAAAOAAQAAQAAAAEAAAAPAAQAAQAAAAEAAAAQAAQAAQADAAEAAAARAAQAAQAAAAEAAAASAAQAAQAAAAEAAAATAAQAAQAAAAEAAAATAAMAAQAAAAEAAAASAAMAAQAAAAEAAAARAAMAAQAAAAEAAAAQAAMAAQADAAEAAAAPAAMAAQADAAEAAAAPAAUAAQAAAAIAAAAQAAUAAQADAAIAAAARAAUAAQAAAAIAAAASAAUAAQAAAAIAAAARAAYAAQAAAAIAAAAQAAYAAQAAAAIAAAAbAP7/AAABAAAAAAAbAP//AAABAAEAAAAcAP//AAABAAEAAAAcAAAAAAABAAIAAAAdAAAAAAABAAIAAAAcAP7/AAACAAAAAAAdAP7/AAACAAAAAAAeAP7/AAACAAAAAAAeAP//AAABAAEAAAAdAP//AAABAAEAAAAGAAUAAQAAAAIAAAAFAAUAAQAAAAIAAAAEAAUAAQAAAAIAAAADAAUAAQAAAAIAAAACAAUAAQAAAAIAAAD+/wUAAQAAAAIAAAD9/wUAAQAAAAIAAAD8/wUAAQAAAAIAAAD5/wEAAQAAAAAAAAA=")
@@ -138,6 +128,7 @@ tile_map_data = PackedByteArray("AAD9/wIAAAAAAAAAAAACAAMAAAACAAAAAAAGAAEAAAADAAA
 tile_set = SubResource("TileSet_gbqnl")
 
 [node name="Rock_Scene" parent="." unique_id=1025934399 instance=ExtResource("2_yb1ct")]
+game_over_scene = ""
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("7_gbqnl")]
-position = Vector2(250, -1)
+position = Vector2(250, 27.5)

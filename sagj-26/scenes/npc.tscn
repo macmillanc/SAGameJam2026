@@ -10,6 +10,7 @@
 radius = 39.0
 
 [node name="Npc" type="CharacterBody2D" unique_id=403265676]
+scale = Vector2(2, 2)
 script = ExtResource("1_rv78h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=740081047]
