@@ -9,7 +9,7 @@ func physics_update(_delta: float) -> void:
 		state_machine.transition_to("Air")
 		return
 
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_action_just_pressed("jump"):
 		player.jump()
 		state_machine.transition_to("Air")
 		return
