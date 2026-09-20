@@ -6,7 +6,8 @@ extends CharacterBody2D
 const lines: Array[String] = [
 	"Hey :)",
 	"So..Press [I] to change seasons",
-	"Press [J] to slow down time"
+	"Press [O] to slow down time",
+	"Finally, press [P] to speed up time!"
 ]
 
 func _ready():

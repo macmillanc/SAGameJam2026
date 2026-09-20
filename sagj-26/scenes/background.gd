@@ -7,7 +7,7 @@ extends Node2D
 
 # Length of a full day cycle in seconds
 @export var day_length_seconds: float = 120.0 
-@export var fast_forward_boost: float = 300.0
+@export var fast_forward_boost: float = 100.0
 
 var time_of_day: float = 0.0 # Ranges from 0.0 to 1.0
 var direction: float = 1.0

@@ -1,7 +1,7 @@
 extends Parallax2D
 
 @export var base_cloud_speed: float = 5.0
-@export var fast_forward_boost: float = 100.0 # Extra multiplier during fast forward
+@export var fast_forward_boost: float = 20.0 # Extra multiplier during fast forward
 
 func _process(delta: float) -> void:
 	var current_boost := 1.0
