@@ -10,7 +10,7 @@ The bigger u are, the further u roll (higher score)
 
 
 Structure: Levels
-Levels: 10
+Levels: 5
 Levels are in a story line
 Leaderboard for each level
 
@@ -50,8 +50,8 @@ Eventually u get reuinited with ur rock family (da end)
 Order of importance:
 
 1) Design the character ✓ 
-1.5) Animate the character
-1.75) Make the character fall apart
+1.5) Animate the character 
+1.75) Make the character fall apart ✓
 2) Make a tile map ✓
 2.5) Make skyboxes which evolve with time
 2.75) Replace falling off the map with something else depending on the level
@@ -63,8 +63,56 @@ Order of importance:
 7) Design non-static obstacles (change with time)
 8) Add weather
 9) Add story
-10) Add NPC's
-11) Add ending + start stuff + tutorial 
+10) Add NPC's ✓
+11) Add ending + start stuff
+
+Task Outline:
+
+
+1) Animate the character (Cameron)
+
+-Rock blinks occasionally
+- Rock degrading animation
+- Add live visuals
+
+2) Make skyboxes which evolve with time (Hirusha)
+
+- Get clouds that move in the sky endlessly
+- Get 4 different 'background' skies for each season
+- Make the clouds go faster when time speeds up
+- Make day and night happen only when seasons change (sun and moon should rise and set really quickly)
+
+3) Replace falling off the map with something else depending on the level
+- Add deep water and toxic sludge that kill the player upon contact
+
+
+4) Design maps + level selector (Cameron)
+- Make level selector for the 5 main maps
+- Make each level within
+   
+6) Design end of level rolling cutscene + leaderboard
+-Decide leaderboard on amount of stages used and then on time taken to beat
+
+8) Design static obstacles (don't change with weather only with size)
+-Add rock slopes
+-Add holes which only certain sizes of rock can fit in
+-Add trampolines which bounce u depending on ur size
+
+10) Add buttons
+-Add buttons which depending on ur size u can hit to unlock things (eg metal doors or trampolines)
+
+11) Design non-static obstacles (change with time)
+-Add metal doors which decay after 2 seasons
+-
+12) Redesign assets
+
+14) Add weather
+15) Add story
+16) Add ending + start stuff
+
+
+
+
 
 
 
