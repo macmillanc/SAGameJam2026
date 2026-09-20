@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d2f5wsaad13a2"]
+
+[ext_resource type="Script" uid="uid://blocrqisjjrua" path="res://scripts/Crate.gd" id="1_b66cd"]
+[ext_resource type="Script" uid="uid://rpbbyos3x0yx" path="res://scripts/crate_node.gd" id="1_kn6iu"]
+[ext_resource type="Texture2D" uid="uid://b3t7fsn5cp3ah" path="res://assets/obstacles/Crates.png" id="2_dwt0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlqja"]
+size = Vector2(64, 64)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmpeg"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -1, 0)
+angle_min = 1.0728835e-05
+angle_max = 180.00002
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 980, 0)
+color = Color(0.54509807, 0.3529412, 0.16862746, 1)
+
+[node name="Node2D" type="Node2D" unique_id=429667971]
+script = ExtResource("1_kn6iu")
+
+[node name="Crate" type="RigidBody2D" parent="." unique_id=1617084253]
+can_sleep = false
+script = ExtResource("1_b66cd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Crate" unique_id=1235384468]
+texture = ExtResource("2_dwt0d")
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate" unique_id=627833278]
+shape = SubResource("RectangleShape2D_nlqja")
+
+[node name="WoodParticles" type="GPUParticles2D" parent="Crate" unique_id=2007630157]
+emitting = false
+amount = 100
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_rmpeg")
