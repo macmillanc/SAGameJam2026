@@ -28,6 +28,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_mek2u")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=694843621]
+position = Vector2(0, -69)
 position_smoothing_enabled = true
 
 [node name="States" type="Node2D" parent="." unique_id=1025934399 node_paths=PackedStringArray("initial_state")]
