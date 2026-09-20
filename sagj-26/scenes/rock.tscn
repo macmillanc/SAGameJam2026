@@ -43,3 +43,8 @@ script = ExtResource("9_pdvy2")
 
 [node name="Air" type="Node2D" parent="States" unique_id=1745461648]
 script = ExtResource("10_8c0lt")
+
+[node name="LevelLabel" type="Label" parent="." unique_id=1743432162]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level time"

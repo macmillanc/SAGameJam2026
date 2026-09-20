@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://db5ydef25yfl7"]
+[gd_scene format=4 uid="uid://p0q2f1p66qxt"]
 
 [ext_resource type="Shader" uid="uid://ckwwukkin508o" path="res://scenes/grass.gdshader" id="1_cq4me"]
 [ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scenes/background.gd" id="1_e13mp"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://d077nu7hcdyr" path="res://assets/Clouds/Clouds 7/1.png" id="8_7a100"]
 [ext_resource type="Texture2D" uid="uid://d2gpx37xwaaj8" path="res://assets/Clouds/Clouds 8/1.png" id="9_feaue"]
 [ext_resource type="Texture2D" uid="uid://cgxff5v3icehd" path="res://assets/Clouds/Clouds 1/1.png" id="9_nlqja"]
-[ext_resource type="Texture2D" uid="uid://dd4w4r0nfxguk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch1.png" id="9_tbcdj"]
 [ext_resource type="Script" uid="uid://cx8fhrpcnmahv" path="res://scenes/clouds.gd" id="10_06rsu"]
 [ext_resource type="Texture2D" uid="uid://dlsgvym0wmadk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch2.png" id="10_ej4tf"]
 [ext_resource type="Texture2D" uid="uid://dpf654u8dyh2q" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch3.png" id="11_0hilk"]
@@ -316,11 +315,6 @@ tile_set = SubResource("TileSet_gbqnl")
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("7_gbqnl")]
 position = Vector2(250, 27.5)
-
-[node name="Birch1" type="Sprite2D" parent="." unique_id=97405071]
-position = Vector2(545, -50)
-scale = Vector2(2, 2)
-texture = ExtResource("9_tbcdj")
 
 [node name="Birch2" type="Sprite2D" parent="." unique_id=2137841507]
 position = Vector2(951, 64)

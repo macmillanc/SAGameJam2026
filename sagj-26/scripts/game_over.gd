@@ -8,4 +8,5 @@ func _on_retry_button_pressed() -> void:
 		print("Error: No level path was recorded in Global!")
 
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	Engine.time_scale = 1.0 # Unpause physics if paused
+	get_tree().change_scene_to_file("res://scenes/map.tscn")

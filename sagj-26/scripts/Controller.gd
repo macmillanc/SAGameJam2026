@@ -18,28 +18,100 @@ extends CharacterBody2D
 @export var speed: float = 400.0
 @export var max_speed: float = 500.0     # Hard velocity cap
 @export var accel: float = 900.0
-@export var decel: float = 1200.0
+@export var decel: float = 300.0
 @export var base_jump_velocity: float = -350.0
-@export var fall_limit: float = 1000.0
+@export var fall_limit: float = 500.0
 @export var max_lives: int = 3
 @export_file("*.tscn") var game_over_scene: String
 
 var current_lives: int
 var stage: int = 0
-var changing_season: bool = false
 var is_slowed: bool = false
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var hit_timer: float = 0.0
 var spin_direction: float = 1.0
 
+# --- Season Transition Variables ---
+var changing_season: bool = false
+var season_transition_progress: float = 0.0 # 0.0 to 1.0 progress tracking
+var start_season: int = 0
+var target_season: int = 0
+
+# --- Level Label Node Reference ---
+@onready var level_label: Label = $LevelLabel
+
 
 func _ready() -> void:
+	# Ensure Player is registered in the "player" group for background/cloud scripts
+	if not is_in_group("player"):
+		add_to_group("player")
+
 	current_lives = max_lives
 	if stage_textures.size() > stage and stage_textures[stage]:
 		sprite.texture = stage_textures[stage]
 	update_sprite_and_collision()
 	Global.last_played_level = get_tree().current_scene.scene_file_path
+	
+	_setup_level_label()
+
+
+func _setup_level_label() -> void:
+	if not level_label:
+		level_label = get_node_or_null("LevelLabel") as Label
+		
+	if not level_label:
+		push_error("Player.gd: Could not find 'LevelLabel' child node in rock.tscn!")
+		return
+
+	# Prevent label from spinning with player's rotation
+	level_label.top_level = true
+	
+	# Parse current level number from scene file name
+	var current_scene_path: String = get_tree().current_scene.scene_file_path
+	var file_name: String = current_scene_path.get_file()
+	
+	var RegExClass = RegEx.new()
+	RegExClass.compile("\\d+")
+	var match_result = RegExClass.search(file_name)
+	
+	var level_num: int = 1
+	if match_result:
+		level_num = match_result.get_string().to_int()
+		
+	# Lookup level name from Global
+	var level_name: String = "Unknown Area"
+	if "level_names" in Global and Global.level_names.has(level_num):
+		level_name = Global.level_names[level_num]
+		
+	level_label.text = "Level %d - %s" % [level_num, level_name]
+	
+	# Visual Styling: Size 32, White Text, 4px Grey Outline, Shadow
+	var settings = LabelSettings.new()
+	settings.font_size = 32
+	settings.font_color = Color.WHITE
+	settings.outline_size = 4
+	settings.outline_color = Color(0.4, 0.4, 0.4, 1.0)
+	settings.shadow_size = 6
+	settings.shadow_color = Color(0.0, 0.0, 0.0, 0.6)
+	settings.shadow_offset = Vector2(3, 3)
+	
+	level_label.label_settings = settings
+	level_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	level_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	
+	level_label.global_position = global_position + Vector2(-level_label.size.x / 2.0, -80.0)
+	level_label.visible = true
+	level_label.modulate.a = 1.0
+	
+	# Animate: Display 1.5s then fade over 1.0s
+	var tween = create_tween()
+	tween.tween_interval(1.5)
+	tween.tween_property(level_label, "modulate:a", 0.0, 1.0)
+	tween.tween_callback(func(): 
+		if is_instance_valid(level_label):
+			level_label.visible = false
+	)
 
 
 func _physics_process(delta: float) -> void:
@@ -54,6 +126,10 @@ func _physics_process(delta: float) -> void:
 	if not is_inside_tree():
 		return
 
+	# Keep label centered directly above the player while active
+	if is_instance_valid(level_label) and level_label.visible and level_label.modulate.a > 0:
+		level_label.global_position = global_position + Vector2(-level_label.size.x / 2.0, -80.0)
+
 	# Capture velocity BEFORE move_and_slide zeroes it out on collision
 	var pre_collision_velocity: Vector2 = velocity
 
@@ -67,41 +143,28 @@ func _physics_process(delta: float) -> void:
 			var normal = collision.get_normal()
 			var impact_speed: float = abs(pre_collision_velocity.dot(normal))
 
-			# Ignore minor brushes or slides along surfaces
 			if impact_speed < 10.0:
 				continue
 
-			# Prevent rapid bounce loops if trapped against geometry
 			if hit_timer > 0.0:
 				velocity = velocity * 0.5
 				break
 
 			hit_timer = hit_cooldown
 
-			# Force scale decreases as stage increases (Rock gets smaller / lighter)
 			var force_multiplier: float = 1.0 - (clampf(stage, 0, 4) * 0.2)
 			var effective_impact_force: float = impact_speed * force_multiplier
 
-			# Apply damage to crate
 			collider.take_damage(effective_impact_force, crate_particle_scene)
-
-			# Apply physical pushing impulse to the RigidBody crate
 			collider.apply_central_impulse(-normal * push_force)
-
-			# Trigger camera shake
 			trigger_camera_shake(effective_impact_force)
 
-			# Bounce calculation
 			var bounced_vel = pre_collision_velocity.bounce(normal)
 			velocity = bounced_vel.normalized() * min(bounced_vel.length() * bounce_force, speed)
-
-			# Nudge player away from crate to avoid multi-frame collision overlap
 			global_position += normal * 2.0
-
 			spin_direction *= 1.0
 			break
 
-	# Enforce hard max speed cap
 	if velocity.length() > max_speed:
 		velocity = velocity.limit_length(max_speed)
 
@@ -127,14 +190,64 @@ func trigger_camera_shake(impact_force: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("change_season") and not changing_season:
-		change_season()
+	# Ignore all new key presses during season transition
+	if changing_season:
+		return
+
+	# 1. Trigger using Input Map action "change_season"
+	if event.is_action_pressed("change_season"):
+		start_season_change(2.0)
+
+	# 2. Fallback direct key trigger (I key)
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_I:
+			start_season_change(2.0)
 
 	if event.is_action_pressed("slow_time"):
 		scale_time(2.0, 0.5)
 	
 	if event.is_action_pressed("speed_time"):
 		scale_time(2.0, 2.0)
+
+
+func start_season_change(duration: float = 2.0) -> void:
+	if changing_season:
+		return
+		
+	changing_season = true
+	start_season = Global.season
+	target_season = (Global.season + 1) % 4
+	
+	print("SEASON: Starting smooth transition from ", start_season, " to ", target_season)
+	
+	var elapsed: float = 0.0
+	
+	# Continuous progress loop over the specified duration
+	while elapsed < duration:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+		season_transition_progress = clampf(elapsed / duration, 0.0, 1.0)
+	
+	# Finalize season state
+	Global.season = target_season
+	season_transition_progress = 0.0
+	changing_season = false
+	
+	# Advance stage growth
+	stage += 1
+	if stage >= 5:
+		game_over()
+		return
+
+	if stage_textures.size() > stage and stage_textures[stage]:
+		sprite.texture = stage_textures[stage]
+	update_sprite_and_collision()
+
+	# Notify active object groups
+	get_tree().call_group("season_objects", "update_grass")
+	get_tree().call_group("Crates", "on_season_changed")
+	
+	print("SEASON: Transition complete! Current Global.season = ", Global.season)
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -144,6 +257,10 @@ func apply_gravity(delta: float) -> void:
 func apply_horizontal_movement(direction: float, delta: float = -1.0) -> void:
 	if hit_timer > 0.0:
 		return
+
+	# Override input direction to 0 if changing season so player decelerates naturally
+	if changing_season:
+		direction = 0.0
 
 	if delta < 0.0:
 		delta = get_physics_process_delta_time()
@@ -155,6 +272,10 @@ func apply_horizontal_movement(direction: float, delta: float = -1.0) -> void:
 
 
 func jump() -> void:
+	# Do not allow jumping while season is changing
+	if changing_season:
+		return
+
 	var jump_multiplier: float = pow(1.15, stage)
 	velocity.y = base_jump_velocity * jump_multiplier
 
@@ -196,31 +317,6 @@ func game_over() -> void:
 		get_tree().change_scene_to_file(game_over_scene)
 	else:
 		get_tree().reload_current_scene()
-
-
-func change_season() -> void:
-	changing_season = true
-	var target_season = (Global.season + 1) % 4
-
-	for i in range(12):
-		Global.season = (Global.season + 1) % 4
-		get_tree().call_group("season_objects", "update_grass")
-		await get_tree().create_timer(0.075).timeout
-
-	Global.season = target_season
-	get_tree().call_group("season_objects", "update_grass")
-	# Calls 'on_season_changed()' on every active Crate node in the scene tree
-	get_tree().call_group("Crates", "on_season_changed")
-	changing_season = false
-
-	stage += 1
-	if stage >= 5:
-		game_over()
-		return
-
-	if stage_textures.size() > stage and stage_textures[stage]:
-		sprite.texture = stage_textures[stage]
-	update_sprite_and_collision()
 
 
 func update_sprite_and_collision() -> void:
