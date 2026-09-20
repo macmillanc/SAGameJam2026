@@ -20,7 +20,6 @@ var stage_grid_coords: Dictionary = {
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var particles: GPUParticles2D = $WoodParticles
-@onready var large_splinters: GPUParticles2D = $LargeSplinters
 
 
 func _ready() -> void:
@@ -97,16 +96,4 @@ func update_texture() -> void:
 
 
 func explode() -> void:
-	for p_node in [particles, large_splinters]:
-		if p_node:
-			p_node.reparent(get_tree().current_scene)
-			p_node.restart()
-			get_tree().create_timer(p_node.lifetime + 0.2).timeout.connect(p_node.queue_free)
-
-	var colliding_bodies = get_colliding_bodies()
-	for body in colliding_bodies:
-		if body is RigidBody2D:
-			body.sleeping = false
-			body.apply_impulse(Vector2.UP * 1.0)
-
 	queue_free()

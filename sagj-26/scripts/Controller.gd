@@ -98,7 +98,7 @@ func _physics_process(delta: float) -> void:
 			# Nudge player away from crate to avoid multi-frame collision overlap
 			global_position += normal * 2.0
 
-			spin_direction *= -1.0
+			spin_direction *= 1.0
 			break
 
 	# Enforce hard max speed cap
