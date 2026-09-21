@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://c54c5n0ug4rmp" path="res://scripts/map/Map.gd" id="1_0cso3"]
 [ext_resource type="Script" uid="uid://b4vj2shw062l3" path="res://scripts/map/LineDrawer.gd" id="2_2klcf"]
 [ext_resource type="Script" uid="uid://df4sl2awnsqws" path="res://scripts/map/LevelNode.gd" id="3_2lpho"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gldc4"]
-load_path = "res://.godot/imported/Levels.png-2fdb85741f6c369a9467c9cc8f6d56bf.ctex"
+[ext_resource type="Texture2D" uid="uid://c1e1hpe1poeit" path="res://assets/UI-bakgrounds/Levels.png" id="4_0cso3"]
 
 [node name="Map" type="Node2D" unique_id=704902217 node_paths=PackedStringArray("line_drawer", "levels_container", "camera")]
 script = ExtResource("1_0cso3")
@@ -23,7 +21,7 @@ levels_container = NodePath("../Levels")
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_2lpho")
-spritesheet = SubResource("CompressedTexture2D_gldc4")
+spritesheet = ExtResource("4_0cso3")
 
 [node name="Level2" type="TextureButton" parent="Levels" unique_id=1317035319]
 offset_left = 245.0
@@ -32,7 +30,7 @@ offset_right = 285.0
 offset_bottom = -10.0
 script = ExtResource("3_2lpho")
 level_num = 1
-spritesheet = SubResource("CompressedTexture2D_gldc4")
+spritesheet = ExtResource("4_0cso3")
 
 [node name="Level3" type="TextureButton" parent="Levels" unique_id=421765129]
 offset_left = 368.0
@@ -41,7 +39,7 @@ offset_right = 408.0
 offset_bottom = 173.0
 script = ExtResource("3_2lpho")
 level_num = 2
-spritesheet = SubResource("CompressedTexture2D_gldc4")
+spritesheet = ExtResource("4_0cso3")
 
 [node name="Level4" type="TextureButton" parent="Levels" unique_id=1524597728]
 offset_left = 158.0
@@ -50,7 +48,7 @@ offset_right = 198.0
 offset_bottom = 255.0
 script = ExtResource("3_2lpho")
 level_num = 3
-spritesheet = SubResource("CompressedTexture2D_gldc4")
+spritesheet = ExtResource("4_0cso3")
 
 [node name="Level5" type="TextureButton" parent="Levels" unique_id=1642198324]
 offset_left = -99.0
@@ -59,7 +57,7 @@ offset_right = -59.0
 offset_bottom = 266.0
 script = ExtResource("3_2lpho")
 level_num = 4
-spritesheet = SubResource("CompressedTexture2D_gldc4")
+spritesheet = ExtResource("4_0cso3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2062448589]
 limit_left = -1000
