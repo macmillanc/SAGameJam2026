@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="34_sejw4"]
 [ext_resource type="Script" uid="uid://808gq1p5brvj" path="res://scripts/canvas_modulate.gd" id="35_6lx4c"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="35_qfp7r"]
+[ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="36_6xmqk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hvrd6"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -360,3 +361,7 @@ position = Vector2(250, 27.5)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=957465567]
 script = ExtResource("35_6lx4c")
+
+[node name="End" parent="." unique_id=1537407309 instance=ExtResource("36_6xmqk")]
+position = Vector2(3096, 221)
+level_select_scene = "uid://3mx3h7pbleho"
