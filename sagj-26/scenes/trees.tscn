@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://da0x67j7e1baw"]
+
+[ext_resource type="Texture2D" uid="uid://dd4w4r0nfxguk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch1.png" id="1_ysiov"]
+[ext_resource type="Script" uid="uid://dpthmq0cvhftc" path="res://scripts/tree.gd" id="2_ysiov"]
+
+[node name="Birch1" type="Sprite2D" unique_id=790892870]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ysiov")
+script = ExtResource("2_ysiov")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1373381652]

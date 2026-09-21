@@ -64,7 +64,7 @@ func on_season_changed() -> void:
 		queue_free()
 
 
-func take_damage(impact_force: float, particle_scene: PackedScene = null) -> void:
+func take_damage(impact_force: float, _particle_scene: PackedScene = null) -> void:
 	var required_force: float = stage_speed_thresholds.get(current_stage, 0.0)
 
 	if impact_force < required_force:

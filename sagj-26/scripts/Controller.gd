@@ -245,6 +245,7 @@ func start_season_change(duration: float = 2.0) -> void:
 
 	# Notify active object groups
 	get_tree().call_group("season_objects", "update_grass")
+	get_tree().call_group("season_objects", "update_tree")
 	get_tree().call_group("Crates", "on_season_changed")
 	
 	print("SEASON: Transition complete! Current Global.season = ", Global.season)

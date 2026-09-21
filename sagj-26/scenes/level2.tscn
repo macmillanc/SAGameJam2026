@@ -1,3 +1,53 @@
 [gd_scene format=3 uid="uid://c5w3i4t1f36ax"]
 
+[ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="2_2k3dv"]
+[ext_resource type="Texture2D" uid="uid://b5gqt4bvu4440" path="res://assets/ground/common_dirt.png" id="3_4038r"]
+[ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="3_alqfr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4038r"]
+texture = ExtResource("3_4038r")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_vdvrb"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_4038r")
+
 [node name="Node2D" type="Node2D" unique_id=1452658447]
+
+[node name="CharacterBody2D" parent="." unique_id=1357846045 instance=ExtResource("2_2k3dv")]
+position = Vector2(-49, -10)
+
+[node name="End" parent="." unique_id=1537407309 instance=ExtResource("3_alqfr")]
+position = Vector2(169, -12)
+level_index = 1
+next_level_scene = "uid://7wqck613pxsp"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1974386294]
+tile_map_data = PackedByteArray(0, 0, 254, 255, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_vdvrb")
