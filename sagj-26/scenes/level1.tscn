@@ -33,12 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://bwanoba6p3cbf" path="res://assets/decor/grass/grass.png" id="32_hiiqp"]
 [ext_resource type="Script" uid="uid://k1q2pafq7122" path="res://scripts/Grass.gd" id="33_dkkmk"]
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="34_sejw4"]
+[ext_resource type="Script" uid="uid://808gq1p5brvj" path="res://scripts/canvas_modulate.gd" id="35_6lx4c"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="35_qfp7r"]
-[ext_resource type="Script" uid="uid://dpthmq0cvhftc" path="res://scripts/tree.gd" id="36_1vjko"]
-[ext_resource type="Texture2D" uid="uid://dd4w4r0nfxguk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch1.png" id="36_x80p0"]
-[ext_resource type="Texture2D" uid="uid://dlsgvym0wmadk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch2.png" id="37_6b8u6"]
-[ext_resource type="Texture2D" uid="uid://dpf654u8dyh2q" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch3.png" id="38_6qhw2"]
-[ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="39_y3pui"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hvrd6"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -285,7 +281,6 @@ texture = ExtResource("27_n3wcc")
 centered = false
 
 [node name="Back" type="TileMapLayer" parent="." unique_id=309460005]
-visible = false
 tile_map_data = PackedByteArray("AAACAP7/AQABAAAAAAD8//7/AQADAAAAABD+//3/AQACAAAAABA=")
 tile_set = SubResource("TileSet_cq4me")
 
@@ -313,19 +308,23 @@ current_stage = 2
 
 [node name="crate13" parent="Obstacles" unique_id=348865569 instance=ExtResource("29_qrjs1")]
 position = Vector2(2447, 215)
+current_stage = 1
 
 [node name="crate14" parent="Obstacles" unique_id=1715024370 instance=ExtResource("29_qrjs1")]
 position = Vector2(2518, 216)
+current_stage = 1
 
 [node name="crate15" parent="Obstacles" unique_id=831826243 instance=ExtResource("29_qrjs1")]
-position = Vector2(2020, 209)
+position = Vector2(2605, 216)
 current_stage = 1
 
 [node name="crate16" parent="Obstacles" unique_id=1175201446 instance=ExtResource("29_qrjs1")]
 position = Vector2(2764, 216)
+current_stage = 1
 
 [node name="crate17" parent="Obstacles" unique_id=1417469826 instance=ExtResource("29_qrjs1")]
 position = Vector2(2902, 218)
+current_stage = 1
 
 [node name="crate10" parent="Obstacles" unique_id=1254484100 instance=ExtResource("29_qrjs1")]
 position = Vector2(1670, 216)
@@ -353,17 +352,11 @@ script = ExtResource("33_dkkmk")
 tile_map_data = PackedByteArray("AAD9/wIAAAAAAAAAAAACAAMAAAACAAAAAAAGAAEAAAADAAAAABA=")
 tile_set = SubResource("TileSet_gbqnl")
 
-[node name="Rock_Scene" parent="." unique_id=1025934399 instance=ExtResource("34_sejw4")]
+[node name="Rock_Scene" parent="." unique_id=1025934399 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("34_sejw4")]
+canvas_modulate = NodePath("../CanvasModulate")
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("35_qfp7r")]
 position = Vector2(250, 27.5)
 
-[node name="Tree" type="Sprite2D" parent="." unique_id=234568432]
-position = Vector2(457, -48)
-scale = Vector2(2, 2)
-texture = ExtResource("36_x80p0")
-script = ExtResource("36_1vjko")
-tree_sprites = Array[Texture2D]([ExtResource("36_x80p0"), ExtResource("36_x80p0"), ExtResource("37_6b8u6"), ExtResource("38_6qhw2")])
-
-[node name="End" parent="." unique_id=1537407309 instance=ExtResource("39_y3pui")]
-position = Vector2(3110, 222)
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=957465567]
+script = ExtResource("35_6lx4c")

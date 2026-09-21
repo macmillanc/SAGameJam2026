@@ -3,7 +3,7 @@ extends RigidBody2D
 
 @export var current_stage: int = 3
 @export var tile_size: Vector2i = Vector2i(64, 64)
-
+@export var decay_distance: float = 700.0
 @export var stage_speed_thresholds: Dictionary = {
 	3: 250.0,
 	2: 150.0,
@@ -34,28 +34,33 @@ func _ready() -> void:
 	update_texture()
 
 
-# --- SEASON CHANGE SYSTEM (SHADER AGING TRANSITION) ---
 func on_season_changed() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+
+	# If there is no player, don't decay
+	if player == null:
+		return
+
+	# Don't decay if the crate is too far away from the player
+	if global_position.distance_to(player.global_position) > decay_distance:
+		return
+
 	var mat = sprite.material as ShaderMaterial
 
 	if current_stage == 3:
 		if mat:
-			# 1. Smoothly animate age_progress from 0.0 to 1.0 over 2.0 seconds
 			var tween = create_tween()
 			tween.tween_property(mat, "shader_parameter/age_progress", 1.0, 2.0)
 			await tween.finished
 			
-			# 2. Reset shader back to 0.0 for the new sprite state
 			mat.set_shader_parameter("age_progress", 0.0)
 
-		# 3. Degrade to Stage 1 strength & swap to region (0, 0)
 		current_stage = 1
 		if sprite and sprite.texture:
 			sprite.region_rect = Rect2(0, 0, tile_size.x, tile_size.y)
 
 	else:
 		if mat:
-			# For weaker crates, age and fade alpha out over 2.0 seconds
 			var tween = create_tween().set_parallel(true)
 			tween.tween_property(mat, "shader_parameter/age_progress", 1.0, 2.0)
 			tween.tween_property(sprite, "modulate:a", 0.0, 2.0)

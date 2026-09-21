@@ -1,6 +1,6 @@
 class_name Player
 extends CharacterBody2D
-
+@export var canvas_modulate: CanvasModulate
 @export var bounce_force: float = 0.85    # Bouncing return multiplier
 @export var hit_cooldown: float = 0.15   # Cooldown in seconds between crate hits
 @export var push_force: float = 100.0    # Impulse force applied to push crates on roll
@@ -27,6 +27,9 @@ extends CharacterBody2D
 var current_lives: int
 var stage: int = 0
 var is_slowed: bool = false
+var is_blurred: bool = false             
+var ghost_timer: float = 0.0     
+var ghost_spawn_interval: float = 0.03
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var hit_timer: float = 0.0
@@ -43,6 +46,7 @@ var target_season: int = 0
 
 
 func _ready() -> void:
+	
 	# Ensure Player is registered in the "player" group for background/cloud scripts
 	if not is_in_group("player"):
 		add_to_group("player")
@@ -294,10 +298,32 @@ func scale_time(seconds: float, percentage: float) -> void:
 		return
 	is_slowed = true
 	Engine.time_scale = percentage
+	
+	# Determine target color
+	var target_color: Color = Color(1, 1, 1, 1)
+	if percentage < 1.0:
+		target_color = Color(0.6, 0.8, 1.0, 1.0) # Cool Blue (Slow)
+	else:
+		target_color = Color(1.0, 0.7, 0.6, 1.0) # Warm Red (Fast)
+	
+	# Smoothly fade into the color tint over 0.25 seconds
+	if canvas_modulate:
+		var tween = create_tween().set_ignore_time_scale(true)
+		tween.tween_property(canvas_modulate, "color", target_color, 0.25)
+	
+	if percentage > 1.0:
+		is_blurred = true
+	
 	await get_tree().create_timer(seconds, true, false, true).timeout
+	
 	Engine.time_scale = 1.0
 	is_slowed = false
-
+	is_blurred = false
+	
+	# Smoothly fade back to normal white
+	if canvas_modulate:
+		var reset_tween = create_tween().set_ignore_time_scale(true)
+		reset_tween.tween_property(canvas_modulate, "color", Color(1, 1, 1, 1), 0.25)
 
 func die_and_respawn() -> void:
 	current_lives -= 1
@@ -314,6 +340,7 @@ func die_and_respawn() -> void:
 
 
 func game_over() -> void:
+	Engine.time_scale = 1.0
 	if game_over_scene != "":
 		get_tree().change_scene_to_file(game_over_scene)
 	else:
