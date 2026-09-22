@@ -241,6 +241,7 @@ func start_season_change(duration: float = 2.0) -> void:
 	stage += 1
 	if stage >= 5:
 		game_over()
+		
 		return
 
 	if stage_textures.size() > stage and stage_textures[stage]:
@@ -251,8 +252,6 @@ func start_season_change(duration: float = 2.0) -> void:
 	get_tree().call_group("season_objects", "update_grass")
 	get_tree().call_group("season_objects", "update_tree")
 	get_tree().call_group("Crates", "on_season_changed")
-	
-	print("SEASON: Transition complete! Current Global.season = ", Global.season)
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -340,6 +339,7 @@ func die_and_respawn() -> void:
 
 
 func game_over() -> void:
+	Global.season = 0
 	Engine.time_scale = 1.0
 	if game_over_scene != "":
 		get_tree().change_scene_to_file(game_over_scene)

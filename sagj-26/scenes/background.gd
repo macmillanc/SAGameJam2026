@@ -12,8 +12,27 @@ var season_texture_map: Dictionary = {
 	3: 7  # Winter -> Sky 8 (Index 7)
 }
 
+
+func _ready() -> void:
+	# Forces the background to cleanly reset back to the current active season upon entering the level
+	var initial_active_index: int = season_texture_map.get(Global.season, 0)
+	
+	var total_layers: int = max(
+		sky_sprites.size(), 
+		max(parallax_cloud_sprites.size(), large_cloud_sprites.size())
+	)
+	
+	# Explicitly loop through all sprites on load frame and clear alpha artifacts
+	for i in range(total_layers):
+		var target_alpha: float = 1.0 if i == initial_active_index else 0.0
+		
+		_set_layer_alpha(sky_sprites, i, target_alpha)
+		_set_layer_alpha(parallax_cloud_sprites, i, target_alpha)
+		_set_layer_alpha(large_cloud_sprites, i, target_alpha)
+
+
 func _process(_delta: float) -> void:
-	var player = get_tree().get_first_node_in_group("player")
+	var player: Node = get_tree().get_first_node_in_group("player")
 	
 	var active_from_index: int = season_texture_map.get(Global.season, 0)
 	var active_to_index: int = active_from_index
