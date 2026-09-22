@@ -339,13 +339,7 @@ func die_and_respawn() -> void:
 
 
 func game_over() -> void:
-	Global.season = 0
-	Engine.time_scale = 1.0
-	if game_over_scene != "":
-		get_tree().change_scene_to_file(game_over_scene)
-	else:
-		get_tree().reload_current_scene()
-
+	SceneManager.game_over(game_over_scene)
 
 func update_sprite_and_collision() -> void:
 	var current_scale: float = pow(0.8, stage)

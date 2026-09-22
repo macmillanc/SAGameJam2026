@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://p0q2f1p66qxt"]
 
 [ext_resource type="Shader" uid="uid://ckwwukkin508o" path="res://scenes/grass.gdshader" id="1_cq4me"]
-[ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scenes/background.gd" id="1_e13mp"]
+[ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scripts/background.gd" id="1_e13mp"]
 [ext_resource type="PackedScene" uid="uid://d2f5wsaad13a2" path="res://scenes/crate.tscn" id="2_ckvwl"]
 [ext_resource type="Script" uid="uid://k1q2pafq7122" path="res://scripts/Grass.gd" id="2_ehuit"]
 [ext_resource type="Texture2D" uid="uid://by1c5mf120hiy" path="res://assets/Clouds/Clouds 1/2.png" id="2_ej4tf"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://d077nu7hcdyr" path="res://assets/Clouds/Clouds 7/1.png" id="8_7a100"]
 [ext_resource type="Texture2D" uid="uid://d2gpx37xwaaj8" path="res://assets/Clouds/Clouds 8/1.png" id="9_feaue"]
 [ext_resource type="Texture2D" uid="uid://cgxff5v3icehd" path="res://assets/Clouds/Clouds 1/1.png" id="9_nlqja"]
-[ext_resource type="Script" uid="uid://cx8fhrpcnmahv" path="res://scenes/clouds.gd" id="10_06rsu"]
+[ext_resource type="Script" uid="uid://cx8fhrpcnmahv" path="res://scripts/clouds.gd" id="10_06rsu"]
 [ext_resource type="Texture2D" uid="uid://dlsgvym0wmadk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch2.png" id="10_ej4tf"]
 [ext_resource type="Texture2D" uid="uid://dpf654u8dyh2q" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch3.png" id="11_0hilk"]
 [ext_resource type="Texture2D" uid="uid://dc852o6rdcqdr" path="res://assets/Clouds/Clouds 2/3.png" id="11_sbw1o"]
@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://onncgkcqmrxf" path="res://assets/Clouds/Clouds 6/4.png" id="15_7kfc1"]
 [ext_resource type="Texture2D" uid="uid://cv8tdokgcavj4" path="res://assets/Clouds/Clouds 7/3.png" id="16_jne3d"]
 [ext_resource type="Texture2D" uid="uid://cgtqoip5pno1s" path="res://assets/Clouds/Clouds 8/2.png" id="17_nr1vm"]
-[ext_resource type="Script" uid="uid://boxjwei3ug8on" path="res://scenes/large_clouds.gd" id="19_4exn6"]
+[ext_resource type="Script" uid="uid://boxjwei3ug8on" path="res://scripts/large_clouds.gd" id="19_4exn6"]
 [ext_resource type="Texture2D" uid="uid://uty7fm2d5284" path="res://assets/Clouds/Clouds 2/4.png" id="20_i8gw2"]
 [ext_resource type="Texture2D" uid="uid://tn740ri6ytlt" path="res://assets/Clouds/Clouds 3/4.png" id="21_4exn6"]
 [ext_resource type="Texture2D" uid="uid://cyug7jkcyk7uj" path="res://assets/Clouds/Clouds 4/4.png" id="22_6wmvi"]
@@ -130,7 +130,6 @@ script = ExtResource("1_e13mp")
 sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
 parallax_cloud_sprites = [NodePath("Clouds/Cloud1"), NodePath("Clouds/Cloud2"), NodePath("Clouds/Cloud3"), NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7"), NodePath("Clouds/Cloud8")]
 large_cloud_sprites = [NodePath("LargeClouds/LargeCloud1"), NodePath("LargeClouds/LargeCloud2"), NodePath("LargeClouds/LargeCloud3"), NodePath("LargeClouds/LargeCloud4"), NodePath("LargeClouds/LargeCloud5"), NodePath("LargeClouds/LargeCloud6"), NodePath("LargeClouds/LargeCloud7"), NodePath("LargeClouds/LargeCloud8")]
-day_length_seconds = 500.0
 
 [node name="Sky" type="Parallax2D" parent="Background" unique_id=1456246642]
 scroll_scale = Vector2(0.05, 0.05)

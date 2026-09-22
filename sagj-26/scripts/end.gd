@@ -22,4 +22,5 @@ func _complete_level(player: Node2D) -> void:
 
 	if player.has_method("disable_controls"):
 		player.call("disable_controls")
-	get_tree().change_scene_to_file(level_select_scene)
+
+	SceneManager.change_scene(level_select_scene)

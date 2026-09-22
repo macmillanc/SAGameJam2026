@@ -21,6 +21,13 @@ func start_dialog(position : Vector2, lines : Array[String]):
 	_show_text_box()
 	
 	is_dialog_active = true
+
+func stop_dialog():
+	if is_instance_valid(text_box):
+		text_box.queue_free()
+	is_dialog_active = false
+	can_advance_line = false
+	current_line_index = 0
 	
 func _show_text_box():
 	text_box = text_box_scene.instantiate()

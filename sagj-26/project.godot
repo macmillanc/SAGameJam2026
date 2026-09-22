@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 Global="*uid://b4aqjdgrvlf60"
 InteractionManager="*uid://dvv2d60rskcye"
 DialogManager="*uid://jcnrn8f1sb0j"
+SceneManager="*uid://d4bpoxhnfmw3v"
 
 [display]
 
