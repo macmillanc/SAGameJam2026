@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://blocrqisjjrua" path="res://scripts/Crate.gd" id="1_b66cd"]
 [ext_resource type="Script" uid="uid://rpbbyos3x0yx" path="res://scripts/crate_node.gd" id="1_kn6iu"]
-[ext_resource type="Texture2D" uid="uid://b3t7fsn5cp3ah" path="res://assets/obstacles/Crates.png" id="2_dwt0d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dwt0d"]
+load_path = "res://.godot/imported/Crates.png-d72f16c19fcc0158dfe3598ca7008f6e.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlqja"]
 size = Vector2(64, 64)
@@ -23,9 +25,10 @@ script = ExtResource("1_kn6iu")
 [node name="Crate" type="RigidBody2D" parent="." unique_id=1617084253]
 can_sleep = false
 script = ExtResource("1_b66cd")
+rotted_y_offset = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Crate" unique_id=1235384468]
-texture = ExtResource("2_dwt0d")
+texture = SubResource("CompressedTexture2D_dwt0d")
 region_enabled = true
 region_rect = Rect2(0, 64, 64, 64)
 
