@@ -12,3 +12,11 @@ var level_names: Dictionary = {
 	4: "Deserted",
 	5: "Mt Doom"
 }
+
+var min_stage: Dictionary = {
+	1: 1,
+	2: 0,
+	3: 0,
+	4: 0,
+	5: 0
+}

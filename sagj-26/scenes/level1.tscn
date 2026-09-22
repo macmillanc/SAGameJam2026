@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://b07m0lqqk4gw4" path="res://assets/Clouds/Clouds 6/6.png" id="25_4w6xv"]
 [ext_resource type="Texture2D" uid="uid://dm7knwp6y7fnp" path="res://assets/Clouds/Clouds 7/4.png" id="26_7hmix"]
 [ext_resource type="Texture2D" uid="uid://brrgill3n0tin" path="res://assets/Clouds/Clouds 8/3.png" id="27_n3wcc"]
-[ext_resource type="Texture2D" uid="uid://dxayih0e5ll3o" path="res://assets/ground/Slopes.png" id="29_hvrd6"]
 [ext_resource type="PackedScene" uid="uid://d2f5wsaad13a2" path="res://scenes/crate.tscn" id="29_qrjs1"]
 [ext_resource type="Texture2D" uid="uid://b5gqt4bvu4440" path="res://assets/ground/common_dirt.png" id="30_ltg8m"]
 [ext_resource type="Shader" uid="uid://ckwwukkin508o" path="res://scenes/grass.gdshader" id="31_tnpma"]
@@ -40,8 +39,11 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hvrd6"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lx4c"]
+load_path = "res://.godot/imported/Slopes.png-072b6be66296cd06942a5f0b7818ea1b.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1vjko"]
-texture = ExtResource("29_hvrd6")
+texture = SubResource("CompressedTexture2D_6lx4c")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -0.9313812, 32, 32, -32, 32)
@@ -278,9 +280,7 @@ centered = false
 
 [node name="crate4" parent="Obstacles" unique_id=429667971 instance=ExtResource("29_qrjs1")]
 position = Vector2(1131, 85)
-
-[node name="crate18" parent="Obstacles" unique_id=282602377 instance=ExtResource("29_qrjs1")]
-position = Vector2(1131, 85)
+current_stage = 2
 
 [node name="crate5" parent="Obstacles" unique_id=766216932 instance=ExtResource("29_qrjs1")]
 position = Vector2(1596, 214)
@@ -288,16 +288,19 @@ current_stage = 2
 
 [node name="crate6" parent="Obstacles" unique_id=102446873 instance=ExtResource("29_qrjs1")]
 position = Vector2(1615, 144)
+current_stage = 4
 
 [node name="crate7" parent="Obstacles" unique_id=545546898 instance=ExtResource("29_qrjs1")]
 position = Vector2(1633, 26)
+current_stage = 5
 
 [node name="crate8" parent="Obstacles" unique_id=157584869 instance=ExtResource("29_qrjs1")]
 position = Vector2(1650, -73)
+current_stage = 1
 
 [node name="crate9" parent="Obstacles" unique_id=1094292828 instance=ExtResource("29_qrjs1")]
 position = Vector2(1902, -112)
-current_stage = 2
+current_stage = 4
 
 [node name="crate13" parent="Obstacles" unique_id=348865569 instance=ExtResource("29_qrjs1")]
 position = Vector2(2447, 215)
@@ -309,15 +312,14 @@ current_stage = 1
 
 [node name="crate15" parent="Obstacles" unique_id=831826243 instance=ExtResource("29_qrjs1")]
 position = Vector2(2605, 216)
-current_stage = 1
+current_stage = 2
 
 [node name="crate16" parent="Obstacles" unique_id=1175201446 instance=ExtResource("29_qrjs1")]
 position = Vector2(2764, 216)
-current_stage = 1
 
 [node name="crate17" parent="Obstacles" unique_id=1417469826 instance=ExtResource("29_qrjs1")]
 position = Vector2(2902, 218)
-current_stage = 1
+current_stage = 2
 
 [node name="crate10" parent="Obstacles" unique_id=1254484100 instance=ExtResource("29_qrjs1")]
 position = Vector2(1670, 216)

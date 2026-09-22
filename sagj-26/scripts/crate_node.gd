@@ -1,7 +1,7 @@
 extends Node2D
 
 # Expose current_stage to the top-level Inspector
-@export_enum("Very Damaged:1", "Slightly Damaged:2", "Undamaged:3") var current_stage: int = 3
+@export_enum("Very Damaged:1", "Slightly Damaged:2", "Undamaged:3", "Rotten Very Damaged:4", "Rotten Slightly Damaged:5") var current_stage: int = 3
 
 @onready var crate_body: Crate = $Crate # Change $Crate to your actual child node name
 
