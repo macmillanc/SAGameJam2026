@@ -8,6 +8,7 @@ extends Node2D
 @export var camera_speed: float = 400.0
 
 func _ready() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	refresh_map()
 
 func _process(delta: float) -> void:
