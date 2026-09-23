@@ -237,6 +237,7 @@ func start_season_change(duration: float = 2.0) -> void:
 	
 	# Finalize season state
 	Global.season = target_season
+	Global.season_transitions += 1
 	season_transition_progress = 0.0
 	changing_season = false
 	
@@ -255,6 +256,7 @@ func start_season_change(duration: float = 2.0) -> void:
 	get_tree().call_group("season_objects", "update_grass")
 	get_tree().call_group("season_objects", "update_tree")
 	get_tree().call_group("Crates", "on_season_changed")
+	get_tree().call_group("season_objects", "update_waves")
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
