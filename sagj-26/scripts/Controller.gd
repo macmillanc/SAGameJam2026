@@ -212,6 +212,9 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("speed_time"):
 		scale_time(2.0, 2.0)
+	
+	if event.is_action_pressed("escape"):
+		SceneManager.go_to_map()
 
 
 func start_season_change(duration: float = 2.0) -> void:

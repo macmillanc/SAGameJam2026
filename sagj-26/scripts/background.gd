@@ -4,21 +4,26 @@ extends Node2D
 @export var parallax_cloud_sprites: Array[Sprite2D] = []
 @export var large_cloud_sprites: Array[Sprite2D] = []
 
-# Map Global.season to Inspector indices (0=Sky1, 1=Sky2, 6=Sky7, 7=Sky8)
-var season_texture_map: Dictionary = {
-	0: 0, # Spring -> Sky 1 (Index 0)
-	1: 1, # Summer -> Sky 2 (Index 1)
-	2: 6, # Autumn -> Sky 7 (Index 6)
-	3: 7  # Winter -> Sky 8 (Index 7)
-}
+@export var spring_index = 0
+@export var summer_index = 1
+@export var autumn_index = 6
+@export var winter_index = 7
+
+
+func get_season_index(season: int) -> int:
+	match season:
+		0: return spring_index # Spring
+		1: return summer_index # Summer
+		2: return autumn_index # Autumn
+		3: return winter_index # Winter
+		_: return spring_index
 
 
 func _ready() -> void:
 	# Forces the background to cleanly reset back to the current active season upon entering the level
-	var initial_active_index: int = season_texture_map.get(Global.season, 0)
-	
+	var initial_active_index: int = get_season_index(Global.season)
 	var total_layers: int = max(
-		sky_sprites.size(), 
+		sky_sprites.size(),
 		max(parallax_cloud_sprites.size(), large_cloud_sprites.size())
 	)
 	
@@ -34,18 +39,18 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var player: Node = get_tree().get_first_node_in_group("player")
 	
-	var active_from_index: int = season_texture_map.get(Global.season, 0)
+	var active_from_index: int = get_season_index(Global.season)
 	var active_to_index: int = active_from_index
 	var blend_factor: float = 0.0
 
 	# Check if the player is actively transitioning seasons
 	if player and "changing_season" in player and player.changing_season:
-		active_from_index = season_texture_map.get(player.start_season, 0)
-		active_to_index = season_texture_map.get(player.target_season, 0)
+		active_from_index = get_season_index(player.start_season)
+		active_to_index = get_season_index(player.target_season)
 		blend_factor = player.season_transition_progress
 
 	var total_layers: int = max(
-		sky_sprites.size(), 
+		sky_sprites.size(),
 		max(parallax_cloud_sprites.size(), large_cloud_sprites.size())
 	)
 

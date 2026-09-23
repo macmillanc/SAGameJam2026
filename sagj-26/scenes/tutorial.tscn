@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://by1c5mf120hiy" path="res://assets/Clouds/Clouds 1/2.png" id="2_ej4tf"]
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="2_yb1ct"]
 [ext_resource type="Texture2D" uid="uid://cvkmgbuto4wbv" path="res://assets/Clouds/Clouds 1/4.png" id="3_0hilk"]
-[ext_resource type="Texture2D" uid="uid://b5gqt4bvu4440" path="res://assets/ground/common_dirt.png" id="3_ckvwl"]
 [ext_resource type="Texture2D" uid="uid://bdl03ts0ks0x2" path="res://assets/Clouds/Clouds 2/1.png" id="3_vrdqu"]
 [ext_resource type="Texture2D" uid="uid://bmnky4yq7pk3x" path="res://assets/Clouds/Clouds 3/1.png" id="4_ikfo1"]
 [ext_resource type="Texture2D" uid="uid://7p3jekdxxxud" path="res://assets/decor/level_1/Floating_rocks.png" id="5_6yjpi"]
@@ -51,7 +50,6 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_6yjpi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlqja"]
-texture = ExtResource("3_ckvwl")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)

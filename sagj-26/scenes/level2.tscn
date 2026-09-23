@@ -82,6 +82,9 @@ script = ExtResource("1_icuov")
 sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
 parallax_cloud_sprites = [NodePath("Clouds/Cloud1"), NodePath("Clouds/Cloud2"), NodePath("Clouds/Cloud3"), NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7"), NodePath("Clouds/Cloud8")]
 large_cloud_sprites = [NodePath("LargeClouds/LargeCloud1"), NodePath("LargeClouds/LargeCloud2"), NodePath("LargeClouds/LargeCloud3"), NodePath("LargeClouds/LargeCloud4"), NodePath("LargeClouds/LargeCloud5"), NodePath("LargeClouds/LargeCloud6"), NodePath("LargeClouds/LargeCloud7"), NodePath("LargeClouds/LargeCloud8")]
+summer_index = 2
+autumn_index = 3
+winter_index = 4
 
 [node name="Sky" type="Parallax2D" parent="Background" unique_id=86406718]
 scroll_scale = Vector2(0.05, 0.05)
