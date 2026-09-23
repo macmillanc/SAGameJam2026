@@ -70,7 +70,7 @@ Task Outline:
 
 
 
-1) Replace falling off the map with something else depending on the level
+1) Replace falling off the map with something else depending on the level (Cameron)
 - Add deep water and toxic sludge that kill the player upon contact
 
 
@@ -81,8 +81,6 @@ Task Outline:
 -Decide leaderboard on amount of stages used and then on time taken to beat
 
 4) Design static obstacles (don't change with season only with size)
--Add rock slopes
--Add holes which only certain sizes of rock can fit in
 -Add trampolines which bounce u depending on ur size
 
 5) Add buttons
