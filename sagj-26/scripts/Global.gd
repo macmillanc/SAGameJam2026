@@ -19,7 +19,7 @@ var level_names: Dictionary = {
 
 
 var min_stage: Dictionary = {
-	1: 1,
+	1: 1, 
 	2: 0,
 	3: 0,
 	4: 0,
@@ -32,7 +32,7 @@ var min_stage: Dictionary = {
 # --------------------------------------------------
 
 # Water rises by one 32x32 block every 2 transitions.
-const WATER_RISE_TRANSITIONS: int = 2
+const WATER_RISE_TRANSITIONS: int = 1
 const WATER_BLOCK_HEIGHT: float = 32.0
 
 

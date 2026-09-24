@@ -1,19 +1,22 @@
 extends TileMapLayer
 
-
 @export var water_rise_duration: float = 1.5
 
 var starting_water_y: float
+var water_rise_steps: int = 0
+const WATER_BLOCK_HEIGHT: float = 32.0
 
 
 func _ready() -> void:
 	add_to_group("season_objects")
+	add_to_group("liquid_layer")
 
-	# Remember where the water originally was.
+	# Remember where the water originally was in the editor.
 	starting_water_y = position.y
 
-	# Apply any water rise that has already happened.
-	position.y = starting_water_y - Global.get_water_rise()
+	# RESET: Start completely fresh at the base level position
+	water_rise_steps = 0
+	position.y = starting_water_y
 
 	apply_season_intensity()
 
@@ -29,14 +32,12 @@ func update_waves() -> void:
 # --------------------------------------------------
 
 func update_water_level() -> void:
-	var new_y: float = starting_water_y - Global.get_water_rise()
-
-	# Don't create a tween if nothing actually changed.
-	if is_equal_approx(position.y, new_y):
-		return
+	# Increment the rise counter by 1 every time the season changes
+	water_rise_steps += 1
+	
+	var new_y: float = starting_water_y - (water_rise_steps * WATER_BLOCK_HEIGHT)
 
 	var tween := create_tween()
-
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
@@ -74,6 +75,8 @@ func apply_season_intensity() -> void:
 	# modify every other water surface using the same material.
 	var unique_mat: ShaderMaterial = base_mat.duplicate()
 
+	# Force neon green color
+
 	var config: Dictionary = Global.get_current_wave_settings()
 
 	unique_mat.set_shader_parameter(
@@ -100,20 +103,3 @@ func apply_season_intensity() -> void:
 		material = unique_mat
 	else:
 		tile_set.set("rendering/material", unique_mat)
-
-	print(
-		"WAVES: Season = ",
-		Global.season,
-		" | Transitions = ",
-		Global.season_transitions,
-		" | Height = ",
-		config["height"],
-		" | Frequency = ",
-		config["freq"],
-		" | Speed = ",
-		config["speed"],
-		" | Flow = ",
-		config["flow"],
-		" | Water Rise = ",
-		Global.get_water_rise()
-	)

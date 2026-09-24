@@ -123,7 +123,7 @@ func _physics_process(delta: float) -> void:
 		hit_timer -= delta
 
 	state_machine.physics_process(delta)
-
+	check_hazards()
 	if global_position.y > fall_limit:
 		die_and_respawn()
 
@@ -267,18 +267,20 @@ func apply_horizontal_movement(direction: float, delta: float = -1.0) -> void:
 	if hit_timer > 0.0:
 		return
 
-	# Override input direction to 0 if changing season so player decelerates naturally
 	if changing_season:
 		direction = 0.0
 
 	if delta < 0.0:
 		delta = get_physics_process_delta_time()
 
-	var target_speed: float = direction * speed
+	# Factor in water slow-down effect
+	var water_mult: float = get_water_speed_multiplier()
+	var current_effective_speed: float = speed * water_mult
+
+	var target_speed: float = direction * current_effective_speed
 	var rate: float = accel if direction != 0.0 else decel
 	
 	velocity.x = move_toward(velocity.x, target_speed, rate * delta)
-
 
 func jump() -> void:
 	# Do not allow jumping while season is changing
@@ -331,7 +333,6 @@ func scale_time(seconds: float, percentage: float) -> void:
 
 func die_and_respawn() -> void:
 	current_lives -= 1
-	print("Lives remaining: ", current_lives)
 
 	if current_lives <= 0:
 		game_over()
@@ -356,3 +357,27 @@ func update_sprite_and_collision() -> void:
 		collision_shape.shape = collision_shape.shape.duplicate()
 		var base_radius: float = sprite.texture.get_width() / 2.0
 		collision_shape.shape.radius = base_radius * current_scale
+		
+		
+		# Add this helper function to your Player script
+func get_water_speed_multiplier() -> float:
+	var water_layers = get_tree().get_nodes_in_group("liquid_layer")
+	if water_layers.size() > 0:
+		var water_layer = water_layers[0] as TileMapLayer
+		if water_layer:
+			var tile_pos = water_layer.local_to_map(water_layer.to_local(global_position))
+			var tile_data = water_layer.get_cell_tile_data(tile_pos)
+			if tile_data and tile_data.get_custom_data("is_water"):
+				return 0.5 # Slows speed down to 50% while in water
+	return 1.0
+
+func check_hazards() -> void:
+	var water_layers = get_tree().get_nodes_in_group("liquid_layer")
+	for layer in water_layers:
+		if layer is TileMapLayer:
+			var tile_pos = layer.local_to_map(layer.to_local(global_position))
+			var tile_data = layer.get_cell_tile_data(tile_pos)
+			
+			if tile_data and tile_data.get_custom_data("is_deadly"):
+				die_and_respawn()
+				return

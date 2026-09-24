@@ -355,6 +355,7 @@ script = ExtResource("33_dkkmk")
 
 [node name="Rock_Scene" parent="." unique_id=1025934399 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("34_sejw4")]
 canvas_modulate = NodePath("../CanvasModulate")
+max_lives = 5
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("35_qfp7r")]
 position = Vector2(250, 27.5)

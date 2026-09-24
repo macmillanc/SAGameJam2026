@@ -4,10 +4,10 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 const lines: Array[String] = [
-	"Hey :)",
-	"So..Press [I] to change seasons",
-	"Press [O] to slow down time",
-	"Finally, press [P] to speed up time!"
+	"Hey, you're about to miss the show :O [Press E to Continue]",
+	"Press [I] to change seasons [Press E to Continue]",
+	"Press [O] to slow down time [Press E to Continue]",
+	"Finally, press [P] to speed up so you're not more late XD!"
 ]
 
 func _ready():
