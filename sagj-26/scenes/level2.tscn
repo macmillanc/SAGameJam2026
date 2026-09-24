@@ -38,6 +38,8 @@
 [ext_resource type="Shader" uid="uid://c56huw1q0fpjy" path="res://shaders/below_acid.gdshader" id="33_ehxya"]
 [ext_resource type="Script" uid="uid://dxclyw13nr7vm" path="res://scenes/liquid.gd" id="33_icuov"]
 [ext_resource type="Script" uid="uid://dyy2b7jrolrb2" path="res://scenes/water_body.gd" id="34_xnv6s"]
+[ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="39_tn25f"]
+[ext_resource type="PackedScene" uid="uid://m0qw3glv0jcp" path="res://scenes/door_and_button.tscn" id="40_5b1db"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8jrt"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -554,6 +556,7 @@ position = Vector2(8577, -369)
 current_stage = 1
 
 [node name="Rock_Scene" parent="." unique_id=1357846045 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("2_2k3dv")]
+position = Vector2(0, -500)
 canvas_modulate = NodePath("../CanvasModulate")
 max_lives = 5
 
@@ -592,3 +595,17 @@ script = ExtResource("32_tnhgu")
 [node name="End" parent="." unique_id=1537407309 instance=ExtResource("3_alqfr")]
 position = Vector2(12235, -50)
 level_index = 1
+
+[node name="Npc" parent="." unique_id=403265676 instance=ExtResource("39_tn25f")]
+position = Vector2(-157, 0)
+
+[node name="DoorAndButton" parent="." unique_id=223418976 instance=ExtResource("40_5b1db")]
+position = Vector2(10508, -328)
+
+[node name="Button" parent="DoorAndButton" index="0" unique_id=2129122172]
+position = Vector2(-418, 103)
+
+[node name="Door" parent="DoorAndButton" index="1" unique_id=2018563442]
+position = Vector2(147, 8)
+
+[editable path="DoorAndButton"]
