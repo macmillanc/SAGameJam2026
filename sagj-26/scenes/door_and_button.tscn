@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://m0qw3glv0jcp"]
+
+[ext_resource type="Script" uid="uid://0fltx5wkg5qo" path="res://door_and_button.gd" id="1_nyy6e"]
+[ext_resource type="Texture2D" uid="uid://bd7gt45dc5sl0" path="res://assets/Button.png" id="2_xwcag"]
+[ext_resource type="Texture2D" uid="uid://cejukb2c3ay4d" path="res://assets/door.png" id="3_d7ggo"]
+[ext_resource type="Texture2D" uid="uid://cdjx8orlrqko2" path="res://assets/ButtonDown.png" id="4_reb5e"]
+[ext_resource type="Texture2D" uid="uid://jtl6fbraj0cr" path="res://assets/DoorOpen.png" id="5_goe5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdvrb"]
+size = Vector2(61.27586, 7.629627)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36y2u"]
+size = Vector2(60.00001, 8.253611)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rnii"]
+size = Vector2(28, 62)
+
+[sub_resource type="Animation" id="Animation_dmndb"]
+resource_name = "DoorClosed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_d7ggo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/Door/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_a3dgp"]
+resource_name = "DoorOpen"
+length = 1.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_goe5h")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.5666667, 0.6, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door/Door/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.44),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_auf2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xwcag")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_d7ggo")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Door/Door/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wk6j"]
+_data = {
+&"DoorClosed": SubResource("Animation_dmndb"),
+&"DoorOpen": SubResource("Animation_a3dgp"),
+&"RESET": SubResource("Animation_auf2q")
+}
+
+[sub_resource type="Animation" id="Animation_nyy6e"]
+resource_name = "ButtonDown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_reb5e")]
+}
+
+[sub_resource type="Animation" id="Animation_xwcag"]
+resource_name = "ButtonUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xwcag")]
+}
+
+[sub_resource type="Animation" id="Animation_d7ggo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xwcag")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_reb5e"]
+_data = {
+&"ButtonDown": SubResource("Animation_nyy6e"),
+&"ButtonUp": SubResource("Animation_xwcag"),
+&"RESET": SubResource("Animation_d7ggo")
+}
+
+[node name="DoorAndButton" type="Node2D" unique_id=223418976]
+script = ExtResource("1_nyy6e")
+
+[node name="Button" type="Sprite2D" parent="." unique_id=2129122172]
+position = Vector2(0, -2)
+texture = ExtResource("2_xwcag")
+
+[node name="Button" type="StaticBody2D" parent="Button" unique_id=154113748]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Button" unique_id=2028328710]
+position = Vector2(0.25862122, 27.51852)
+shape = SubResource("RectangleShape2D_vdvrb")
+
+[node name="Area2D" type="Area2D" parent="Button" unique_id=489322620 groups=["player"]]
+position = Vector2(2.4999998, -12.345678)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D" unique_id=1064792574]
+position = Vector2(-2.5000012, 31.472483)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_36y2u")
+
+[node name="Door" type="Sprite2D" parent="." unique_id=2018563442]
+position = Vector2(147, 2)
+scale = Vector2(2, 2)
+texture = ExtResource("3_d7ggo")
+hframes = 20
+
+[node name="Door" type="StaticBody2D" parent="Door" unique_id=1476893595]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Door" unique_id=762219437]
+shape = SubResource("RectangleShape2D_6rnii")
+
+[node name="DoorPlayer" type="AnimationPlayer" parent="." unique_id=146708032]
+libraries/ = SubResource("AnimationLibrary_2wk6j")
+
+[node name="ButtonPlayer" type="AnimationPlayer" parent="." unique_id=1320185226]
+libraries/ = SubResource("AnimationLibrary_reb5e")
+
+[connection signal="body_entered" from="Button/Area2D" to="." method="_on_area_2d_body_entered"]
