@@ -134,7 +134,7 @@ shader_parameter/wave_height = 4.0
 shader_parameter/wave_frequency = 8.0
 shader_parameter/wave_speed = 2.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xffc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5b1db"]
 texture = ExtResource("27_xctje")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -160,7 +160,7 @@ custom_data_layer_0/name = "is_water"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "is_deadly"
 custom_data_layer_1/type = 1
-sources/0 = SubResource("TileSetAtlasSource_3xffc")
+sources/0 = SubResource("TileSetAtlasSource_5b1db")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xnv6s"]
 shader = ExtResource("33_ehxya")
@@ -171,7 +171,7 @@ shader_parameter/flow_speed = 0.3
 shader_parameter/texture_scale = 2.5
 shader_parameter/micro_grain = 0.03
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lk74"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_etc3t"]
 texture = ExtResource("27_xctje")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -195,7 +195,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 custom_data_layer_0/name = "is_deadly"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_6lk74")
+sources/0 = SubResource("TileSetAtlasSource_etc3t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6lk74"]
 shader = ExtResource("27_odav0")
@@ -481,9 +481,6 @@ current_stage = 2
 position = Vector2(6253, -459)
 current_stage = 2
 
-[node name="crate22" parent="Obstacles" unique_id=313450105 instance=ExtResource("27_4vsvd")]
-position = Vector2(7086, -146)
-
 [node name="crate23" parent="Obstacles" unique_id=1672779401 instance=ExtResource("27_4vsvd")]
 position = Vector2(7482, -3420)
 
@@ -594,7 +591,7 @@ script = ExtResource("32_tnhgu")
 
 [node name="End" parent="." unique_id=1537407309 instance=ExtResource("3_alqfr")]
 position = Vector2(12235, -50)
-level_index = 1
+level_index = 2
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("39_tn25f")]
 position = Vector2(-157, 0)

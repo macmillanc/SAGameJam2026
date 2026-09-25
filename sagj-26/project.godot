@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SAGJ26"
-run/main_scene="uid://c5w3i4t1f36ax"
+run/main_scene="uid://3mx3h7pbleho"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
@@ -23,6 +23,7 @@ SceneManager="*uid://d4bpoxhnfmw3v"
 
 [display]
 
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"

@@ -21,6 +21,13 @@ const LEVEL_2_LINES: Array[String] = [
 	"And don't drown XD"
 ]
 
+const LEVEL_3_LINES: Array[String] = [
+	"Well this seems to be where the crates are from",
+	"And it seems to be a bit unsafe",
+	"With all the acid and all . . ."
+	
+]
+
 const DEFAULT_LINES: Array[String] = [
 	"Keep pushing forward! [Press E to Continue]"
 ]
@@ -39,6 +46,8 @@ func _on_interact():
 			active_lines = LEVEL_1_LINES
 		2:
 			active_lines = LEVEL_2_LINES
+		3:
+			active_lines = LEVEL_3_LINES
 		# Add more levels here as you build them (e.g., 3: LEVEL_3_LINES)
 
 	# 4. Start the dialog with the selected lines
