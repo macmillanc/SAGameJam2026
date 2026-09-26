@@ -32,9 +32,7 @@ const LEVEL_3_LINES: Array[String] = [
 const LEVEL_4_LINES: Array[String] = [
 	"Well good we got out of the giant evil factory",
 	"I mean we still have no idea of where they could have gone",
-	"But being confused is better than burning alive",
-	"I still have no idea why we haven't seen anyone else around",
-	"Maybe it's because of the giant volcano . . ."
+	"But being confused is better than burning to death in acid XD"
 	
 	
 ]
