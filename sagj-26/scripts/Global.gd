@@ -8,6 +8,8 @@ var highest_level: int = 0
 # This NEVER goes backwards when the season loops back to Spring.
 var season_transitions: int = 0
 
+var level_scores: Dictionary = {} # Format: { level_num: best_score }
+var last_run_stats: Dictionary = {} # Stores stats for the summary screen
 
 var level_names: Dictionary = {
 	1: "Cloud 9",

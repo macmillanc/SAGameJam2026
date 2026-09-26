@@ -24,6 +24,7 @@ func play_music(stream: AudioStream):
 func stop_music():
 	if audio_player:
 		audio_player.stop()
+		audio_player.stream = null
 
 
 # Changes the pitch caused by the season.
@@ -45,6 +46,7 @@ func twist_pitch(target_pitch: float, duration: float = 2.0):
 		target_total_pitch,
 		duration
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
 
 
 # Changes the pitch caused by slow/speed time effects.

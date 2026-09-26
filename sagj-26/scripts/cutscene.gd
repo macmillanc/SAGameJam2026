@@ -1,10 +1,12 @@
 extends Node2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@export_file("*.tscn") var map_scene_path: String = "res://scenes/map.tscn"
+@export_file("*.tscn") var map_scene_path: String = "res://scenes/score_screen.tscn"
 
 func _ready() -> void:
 	# Connect animation finished signal
+	MusicManager.stop_music()
+	MusicManager.set_game_speed_pitch(1.0)
 	if not animated_sprite_2d.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
 		animated_sprite_2d.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 

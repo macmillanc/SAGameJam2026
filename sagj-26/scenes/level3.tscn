@@ -393,7 +393,6 @@ stretch_mode = 1
 [node name="Rock_Scene" parent="." unique_id=1357846045 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("1_jyq2n")]
 position = Vector2(29, -29)
 canvas_modulate = NodePath("../CanvasModulate")
-max_lives = 5
 
 [node name="Crates" type="Node2D" parent="." unique_id=2009506738]
 

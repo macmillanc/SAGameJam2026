@@ -122,6 +122,10 @@ func take_damage(impact_force: float, _particle_scene: PackedScene = null) -> vo
 		else:
 			if particles:
 				particles.restart()
+			
+			# Set volume lower for stage transitions (linear_to_db(0.25) gives a clear quieter sound)
+			audio_stream_player_2d.volume_db = linear_to_db(0.25)
+			audio_stream_player_2d.play()
 
 
 func update_texture() -> void:
@@ -161,5 +165,7 @@ func update_collision() -> void:
 
 
 func explode() -> void:
+	# Reset volume back to full 0 dB for total destruction
+	audio_stream_player_2d.volume_db = 0.0
 	audio_stream_player_2d.play()
 	queue_free()

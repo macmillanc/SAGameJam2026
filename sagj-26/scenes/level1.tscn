@@ -144,6 +144,7 @@ level_music = ExtResource("37_hvrd6")
 
 [node name="Background" type="Node2D" parent="." unique_id=2069389951 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
 z_index = -1
+scale = Vector2(1, 2)
 script = ExtResource("1_1vjko")
 sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
 parallax_cloud_sprites = [NodePath("Clouds/Cloud1"), NodePath("Clouds/Cloud2"), NodePath("Clouds/Cloud3"), NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7"), NodePath("Clouds/Cloud8")]

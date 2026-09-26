@@ -9,6 +9,7 @@ const LEVEL_1_LINES: Array[String] = [
 	"Hey, you're about to miss the show :O Press [Enter] to Continue",
 	"Press [I] to change seasons",
 	"Press [O] to slow down time",
+	"If you want to do anything but this you can press [Escape] to access previous levels",
 	"And, press [P] to speed up so you're not more late XD!"
 ]
 

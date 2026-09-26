@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwj04lwkfa5nh"]
 
-[ext_resource type="Script" uid="uid://by6k0dn3nwib8" path="res://cutscene.gd" id="1_ix241"]
+[ext_resource type="Script" uid="uid://by6k0dn3nwib8" path="res://scripts/cutscene.gd" id="1_ix241"]
 [ext_resource type="Texture2D" uid="uid://bhtxthksgu01a" path="res://assets/animations/Fall_Scene.png" id="1_ye7fo"]
 [ext_resource type="Texture2D" uid="uid://bvmum27w8xdul" path="res://assets/animations/Start_Scene.png" id="2_8vcau"]
 

@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://drn4wv0f1sem4" path="res://scripts/roll.gd" id="9_pdvy2"]
 [ext_resource type="Script" uid="uid://dnxmohm1pwtp8" path="res://scripts/air.gd" id="10_8c0lt"]
 [ext_resource type="AudioStream" uid="uid://03g5ueutqw4b" path="res://assets/brackeys_platformer_assets/sounds/jump.wav" id="11_b84md"]
+[ext_resource type="Script" uid="uid://cvdgbotcfcb2q" path="res://scripts/timer_label.gd" id="12_pdvy2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 radius = 25.0
@@ -20,6 +21,20 @@ collision_layer = 2
 script = ExtResource("1_vqvgd")
 stage_textures = Array[Texture2D]([ExtResource("2_mek2u"), ExtResource("3_vqvgd"), ExtResource("4_rmkyt"), ExtResource("5_h6o6c"), ExtResource("6_88vqh")])
 game_over_scene = "uid://b1xkv2663ydya"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1796081129]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1159849155]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1254.0
+offset_right = -1152.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Time: 0:00:00"
+horizontal_alignment = 2
+script = ExtResource("12_pdvy2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1103355537]
 shape = SubResource("CircleShape2D_ik6fu")

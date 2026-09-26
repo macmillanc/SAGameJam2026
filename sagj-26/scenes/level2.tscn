@@ -35,14 +35,29 @@
 [ext_resource type="Texture2D" uid="uid://bygg14jsvxs6i" path="res://assets/ground/Slopes-4.png" id="27_xctje"]
 [ext_resource type="Shader" uid="uid://bko8k14hsam1o" path="res://shaders/wood.gdshader" id="28_wso6h"]
 [ext_resource type="Shader" uid="uid://cnlp3ekena4s6" path="res://shaders/factory.gdshader" id="29_ehxya"]
+[ext_resource type="PackedScene" uid="uid://da0x67j7e1baw" path="res://scenes/trees.tscn" id="30_ri7w7"]
 [ext_resource type="Shader" uid="uid://opy3423tosuf" path="res://shaders/acid.gdshader" id="31_4vsvd"]
+[ext_resource type="Texture2D" uid="uid://dd4w4r0nfxguk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch1.png" id="31_gxpvt"]
+[ext_resource type="Texture2D" uid="uid://cj8itjrk5unii" path="res://assets/GandalfHardcore FREE Platformer Assets/Tree1.png" id="31_ri7w7"]
 [ext_resource type="Texture2D" uid="uid://bmvjb767vm6l7" path="res://assets/decor/Arrows.png" id="32_etc3t"]
+[ext_resource type="Texture2D" uid="uid://c0h1egv2v7w0g" path="res://assets/GandalfHardcore FREE Platformer Assets/Tree2.png" id="32_gxpvt"]
+[ext_resource type="Texture2D" uid="uid://dlsgvym0wmadk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch2.png" id="32_kxd52"]
 [ext_resource type="Script" uid="uid://808gq1p5brvj" path="res://scripts/canvas_modulate.gd" id="32_tnhgu"]
 [ext_resource type="Shader" uid="uid://c56huw1q0fpjy" path="res://shaders/below_acid.gdshader" id="33_ehxya"]
 [ext_resource type="Script" uid="uid://dxclyw13nr7vm" path="res://scripts/liquid.gd" id="33_icuov"]
+[ext_resource type="Texture2D" uid="uid://lmrfwp0mu3u" path="res://assets/GandalfHardcore FREE Platformer Assets/Tree3.png" id="33_kxd52"]
+[ext_resource type="Texture2D" uid="uid://dpf654u8dyh2q" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch3.png" id="33_voiyu"]
+[ext_resource type="Texture2D" uid="uid://bvo1mtprkyg1a" path="res://assets/GandalfHardcore FREE Platformer Assets/Weeping Willow1.png" id="34_7gtag"]
+[ext_resource type="Texture2D" uid="uid://dmoqgsud7078t" path="res://assets/GandalfHardcore FREE Platformer Assets/Tree4.png" id="34_voiyu"]
 [ext_resource type="Script" uid="uid://dyy2b7jrolrb2" path="res://scripts/water_body.gd" id="34_xnv6s"]
+[ext_resource type="Texture2D" uid="uid://csn1n5eq75ynx" path="res://assets/GandalfHardcore FREE Platformer Assets/Weeping Willow2.png" id="35_a1fvl"]
+[ext_resource type="Texture2D" uid="uid://b1almtd606qik" path="res://assets/GandalfHardcore FREE Platformer Assets/Weeping Willow3.png" id="36_rcxxg"]
+[ext_resource type="Texture2D" uid="uid://d4aqtdxi6jppd" path="res://assets/GandalfHardcore FREE Platformer Assets/hot air balloon.png" id="37_gxpvt"]
+[ext_resource type="Script" uid="uid://dcw1feiu2ls8e" path="res://scripts/balloons.gd" id="37_kxd52"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="39_tn25f"]
 [ext_resource type="PackedScene" uid="uid://m0qw3glv0jcp" path="res://scenes/door_and_button.tscn" id="40_5b1db"]
+[ext_resource type="AudioStream" uid="uid://c5nep0bn8vd50" path="res://assets/brackeys_platformer_assets/music/Week 21 - Freefall GLIDE.ogg" id="44_7wm5o"]
+[ext_resource type="PackedScene" uid="uid://q4k2lqrst3eh" path="res://scenes/campfire.tscn" id="45_p8hhf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8jrt"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -257,6 +272,7 @@ script = ExtResource("1_go57r")
 level_music = ExtResource("2_58bux")
 
 [node name="Background" type="Node2D" parent="." unique_id=191528396 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
+z_index = -2
 position = Vector2(0, -250)
 script = ExtResource("1_icuov")
 sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
@@ -410,6 +426,107 @@ centered = false
 scale = Vector2(2, 2)
 texture = ExtResource("26_rcxxg")
 centered = false
+
+[node name="decor" type="Node2D" parent="." unique_id=21316832]
+position = Vector2(9753, -223)
+scale = Vector2(2, 2)
+
+[node name="Campfire2" parent="decor" unique_id=1709465016 instance=ExtResource("45_p8hhf")]
+position = Vector2(-5026.5, 128)
+scale = Vector2(1, 1)
+
+[node name="Campfire" parent="decor" unique_id=1602317639 instance=ExtResource("45_p8hhf")]
+z_index = 0
+scale = Vector2(1, 1)
+
+[node name="Trees" type="Node2D" parent="decor" unique_id=470475281]
+position = Vector2(-4876.5, 111.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="Birch1" parent="decor/Trees" unique_id=790892870 instance=ExtResource("30_ri7w7")]
+z_index = -1
+position = Vector2(655, -172)
+texture = ExtResource("31_ri7w7")
+tree_sprites = Array[Texture2D]([ExtResource("31_ri7w7"), ExtResource("32_gxpvt"), ExtResource("33_kxd52"), ExtResource("34_voiyu")])
+
+[node name="Birch6" parent="decor/Trees" unique_id=1236888806 instance=ExtResource("30_ri7w7")]
+z_index = -1
+position = Vector2(9959, -65)
+scale = Vector2(4, 4)
+tree_sprites = Array[Texture2D]([ExtResource("31_gxpvt"), ExtResource("31_gxpvt"), ExtResource("32_kxd52"), ExtResource("33_voiyu")])
+
+[node name="Birch5" parent="decor/Trees" unique_id=248743799 instance=ExtResource("30_ri7w7")]
+z_index = -1
+position = Vector2(9328, -355)
+scale = Vector2(4, 4)
+tree_sprites = Array[Texture2D]([ExtResource("31_gxpvt"), ExtResource("31_gxpvt"), ExtResource("32_kxd52"), ExtResource("33_voiyu")])
+
+[node name="Birch4" parent="decor/Trees" unique_id=340930536 instance=ExtResource("30_ri7w7")]
+z_index = -1
+position = Vector2(1507, -350)
+scale = Vector2(4, 4)
+tree_sprites = Array[Texture2D]([ExtResource("31_gxpvt"), ExtResource("31_gxpvt"), ExtResource("32_kxd52"), ExtResource("33_voiyu")])
+
+[node name="Birch3" parent="decor/Trees" unique_id=2138361445 instance=ExtResource("30_ri7w7")]
+z_index = -1
+position = Vector2(-513, -160)
+scale = Vector2(4, 4)
+tree_sprites = Array[Texture2D]([ExtResource("31_gxpvt"), ExtResource("31_gxpvt"), ExtResource("32_kxd52"), ExtResource("33_voiyu")])
+
+[node name="Birch2" parent="decor/Trees" unique_id=1553831904 instance=ExtResource("30_ri7w7")]
+z_index = -1
+position = Vector2(10283, -378)
+texture = ExtResource("34_7gtag")
+tree_sprites = Array[Texture2D]([ExtResource("34_7gtag"), ExtResource("34_7gtag"), ExtResource("35_a1fvl"), ExtResource("36_rcxxg")])
+
+[node name="balloons" type="Node2D" parent="decor" unique_id=1141409152]
+position = Vector2(-4876.5, 111.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="HotAirBalloon" type="Sprite2D" parent="decor/balloons" unique_id=1191803146]
+position = Vector2(146, -249)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon2" type="Sprite2D" parent="decor/balloons" unique_id=1409411959]
+position = Vector2(-468, -380)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon3" type="Sprite2D" parent="decor/balloons" unique_id=192156787]
+position = Vector2(1495, -474)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon4" type="Sprite2D" parent="decor/balloons" unique_id=1021828935]
+position = Vector2(2791, -410)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon5" type="Sprite2D" parent="decor/balloons" unique_id=1796642178]
+position = Vector2(3893, -542)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon6" type="Sprite2D" parent="decor/balloons" unique_id=1028721387]
+position = Vector2(3941, -542)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon7" type="Sprite2D" parent="decor/balloons" unique_id=1457605774]
+position = Vector2(5901, -667)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon8" type="Sprite2D" parent="decor/balloons" unique_id=282847694]
+position = Vector2(8180, -479)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
+
+[node name="HotAirBalloon9" type="Sprite2D" parent="decor/balloons" unique_id=520874903]
+position = Vector2(10182, -673)
+texture = ExtResource("37_gxpvt")
+script = ExtResource("37_kxd52")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=439116292]
 
@@ -567,7 +684,7 @@ position = Vector2(8577, -369)
 current_stage = 1
 
 [node name="Rock_Scene" parent="." unique_id=1357846045 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("2_2k3dv")]
-position = Vector2(0, -500)
+position = Vector2(193, -512)
 canvas_modulate = NodePath("../CanvasModulate")
 
 [node name="factory" type="TileMapLayer" parent="." unique_id=1565948397]
@@ -621,5 +738,11 @@ position = Vector2(-418, 103)
 
 [node name="Door" parent="DoorAndButton" index="1" unique_id=2018563442]
 position = Vector2(147, 8)
+
+[node name="Second_Phase_Music" type="AudioStreamPlayer2D" parent="." unique_id=706749163]
+position = Vector2(7002, -573)
+stream = ExtResource("44_7wm5o")
+autoplay = true
+max_distance = 3000.0
 
 [editable path="DoorAndButton"]

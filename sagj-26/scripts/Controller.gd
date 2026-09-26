@@ -28,7 +28,7 @@ extends CharacterBody2D
 var current_lives: int
 var stage: int = 0
 var is_slowed: bool = false
-var is_blurred: bool = false             
+var is_blurred: bool = false            
 var ghost_timer: float = 0.0     
 var ghost_spawn_interval: float = 0.03
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,6 +41,11 @@ var changing_season: bool = false
 var season_transition_progress: float = 0.0 # 0.0 to 1.0 progress tracking
 var start_season: int = 0
 var target_season: int = 0
+
+# --- Score & Stat Tracking ---
+var level_season_changes_used: int = 0
+var level_time_mods_used: int = 0
+var level_deaths: int = 0 # <--- Track deaths for score penalty
 
 # --- Level Label Node Reference ---
 @onready var level_label: Label = $LevelLabel
@@ -229,6 +234,7 @@ func start_season_change(duration: float = 2.0) -> void:
 	if changing_season:
 		return
 		
+	level_season_changes_used += 1 
 	changing_season = true
 	start_season = Global.season
 	target_season = (Global.season + 1) % 4
@@ -251,26 +257,21 @@ func start_season_change(duration: float = 2.0) -> void:
 		
 	var random_target_pitch: float = randf_range(min_pitch, max_pitch)
 	
-	# Tell the MusicManager to twist its pitch smoothly over the transition duration!
 	if MusicManager.has_method("twist_pitch"):
 		MusicManager.twist_pitch(random_target_pitch, duration)
-	# --------------------------
 
 	var elapsed: float = 0.0
 	
-	# Continuous progress loop over the specified duration
 	while elapsed < duration:
 		await get_tree().process_frame
 		elapsed += get_process_delta_time()
 		season_transition_progress = clampf(elapsed / duration, 0.0, 1.0)
 	
-	# Finalize season state
 	Global.season = target_season
 	Global.season_transitions += 1
 	season_transition_progress = 0.0
 	changing_season = false
 	
-	# Advance stage growth
 	stage += 1
 	if stage >= 5:
 		game_over()
@@ -280,7 +281,6 @@ func start_season_change(duration: float = 2.0) -> void:
 		sprite.texture = stage_textures[stage]
 	update_sprite_and_collision()
 
-	# Notify active object groups
 	get_tree().call_group("season_objects", "update_grass")
 	get_tree().call_group("season_objects", "update_tree")
 	get_tree().call_group("Crates", "on_season_changed")
@@ -302,7 +302,6 @@ func apply_horizontal_movement(direction: float, delta: float = -1.0) -> void:
 	if delta < 0.0:
 		delta = get_physics_process_delta_time()
 
-	# Factor in water slow-down effect
 	var water_mult: float = get_water_speed_multiplier()
 	var current_effective_speed: float = speed * water_mult
 
@@ -312,11 +311,10 @@ func apply_horizontal_movement(direction: float, delta: float = -1.0) -> void:
 	velocity.x = move_toward(velocity.x, target_speed, rate * delta)
 
 func jump() -> void:
-	# Do not allow jumping while season is changing
 	if changing_season:
 		return
 		
-	player.play( )
+	player.play()
 	var jump_multiplier: float = pow(1.15, stage)
 	velocity.y = base_jump_velocity * jump_multiplier
 
@@ -333,17 +331,16 @@ func scale_time(seconds: float, percentage: float) -> void:
 	if is_slowed:
 		return
 	is_slowed = true
+	level_time_mods_used += 1 
 	Engine.time_scale = percentage
 	base_jump_velocity -= 100
 	
-	# Determine target color
 	var target_color: Color = Color(1, 1, 1, 1)
 	if percentage < 1.0:
-		target_color = Color(0.6, 0.8, 1.0, 1.0) # Cool Blue (Slow)
+		target_color = Color(0.6, 0.8, 1.0, 1.0)
 	else:
-		target_color = Color(1.0, 0.7, 0.6, 1.0) # Warm Red (Fast)
+		target_color = Color(1.0, 0.7, 0.6, 1.0)
 	
-	# Smoothly fade into the color tint over 0.25 seconds
 	if canvas_modulate:
 		var tween = create_tween().set_ignore_time_scale(true)
 		tween.tween_property(canvas_modulate, "color", target_color, 0.25)
@@ -358,12 +355,13 @@ func scale_time(seconds: float, percentage: float) -> void:
 	is_slowed = false
 	is_blurred = false
 	
-	# Smoothly fade back to normal white
 	if canvas_modulate:
 		var reset_tween = create_tween().set_ignore_time_scale(true)
 		reset_tween.tween_property(canvas_modulate, "color", Color(1, 1, 1, 1), 0.25)
 
+
 func die_and_respawn() -> void:
+	level_deaths += 1 # <--- Tracks deaths for score penalties
 	current_lives -= 1
 
 	if current_lives <= 0:
@@ -379,6 +377,7 @@ func die_and_respawn() -> void:
 func game_over() -> void:
 	SceneManager.game_over(game_over_scene)
 
+
 func update_sprite_and_collision() -> void:
 	var current_scale: float = pow(0.8, stage)
 
@@ -389,9 +388,8 @@ func update_sprite_and_collision() -> void:
 		collision_shape.shape = collision_shape.shape.duplicate()
 		var base_radius: float = sprite.texture.get_width() / 2.0
 		collision_shape.shape.radius = base_radius * current_scale
-		
-		
-		# Add this helper function to your Player script
+
+
 func get_water_speed_multiplier() -> float:
 	var water_layers = get_tree().get_nodes_in_group("liquid_layer")
 	if water_layers.size() > 0:
@@ -400,11 +398,13 @@ func get_water_speed_multiplier() -> float:
 			var tile_pos = water_layer.local_to_map(water_layer.to_local(global_position))
 			var tile_data = water_layer.get_cell_tile_data(tile_pos)
 			if tile_data and tile_data.get_custom_data("is_water"):
-				return 0.5 # Slows speed down to 50% while in water
+				return 0.5 
 	return 1.0
+
 
 func spring(springJump : float):
 	velocity.y = -springJump
+
 
 func check_hazards() -> void:
 	var water_layers = get_tree().get_nodes_in_group("liquid_layer")
