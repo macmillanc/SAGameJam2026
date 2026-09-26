@@ -569,7 +569,6 @@ current_stage = 1
 [node name="Rock_Scene" parent="." unique_id=1357846045 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("2_2k3dv")]
 position = Vector2(0, -500)
 canvas_modulate = NodePath("../CanvasModulate")
-max_lives = 5
 
 [node name="factory" type="TileMapLayer" parent="." unique_id=1565948397]
 material = SubResource("ShaderMaterial_3sfjd")
