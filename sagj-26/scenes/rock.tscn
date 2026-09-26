@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c6pde3lk8drr0" path="res://scripts/idle.gd" id="8_b84md"]
 [ext_resource type="Script" uid="uid://drn4wv0f1sem4" path="res://scripts/roll.gd" id="9_pdvy2"]
 [ext_resource type="Script" uid="uid://dnxmohm1pwtp8" path="res://scripts/air.gd" id="10_8c0lt"]
+[ext_resource type="AudioStream" uid="uid://03g5ueutqw4b" path="res://assets/brackeys_platformer_assets/sounds/jump.wav" id="11_b84md"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik6fu"]
 radius = 25.0
@@ -48,3 +49,7 @@ script = ExtResource("10_8c0lt")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Level time"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=468552842]
+stream = ExtResource("11_b84md")
+volume_db = -10.0

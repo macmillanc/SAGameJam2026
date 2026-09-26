@@ -38,6 +38,13 @@
 [ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="36_6xmqk"]
 [ext_resource type="PackedScene" uid="uid://b843etox4v5lp" path="res://scenes/spring.tscn" id="36_hvrd6"]
 [ext_resource type="AudioStream" uid="uid://d12pm7pb564al" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="37_hvrd6"]
+[ext_resource type="PackedScene" uid="uid://da0x67j7e1baw" path="res://scenes/trees.tscn" id="39_y3pui"]
+[ext_resource type="Texture2D" uid="uid://dd4w4r0nfxguk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch1.png" id="40_0j6b7"]
+[ext_resource type="Texture2D" uid="uid://dlsgvym0wmadk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch2.png" id="41_0k0fn"]
+[ext_resource type="Texture2D" uid="uid://dpf654u8dyh2q" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch3.png" id="42_i3v6o"]
+[ext_resource type="Texture2D" uid="uid://bvo1mtprkyg1a" path="res://assets/GandalfHardcore FREE Platformer Assets/Weeping Willow1.png" id="43_0xdic"]
+[ext_resource type="Texture2D" uid="uid://csn1n5eq75ynx" path="res://assets/GandalfHardcore FREE Platformer Assets/Weeping Willow2.png" id="44_5ipuv"]
+[ext_resource type="Texture2D" uid="uid://b1almtd606qik" path="res://assets/GandalfHardcore FREE Platformer Assets/Weeping Willow3.png" id="45_onmav"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hvrd6"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -136,6 +143,7 @@ script = ExtResource("1_y3pui")
 level_music = ExtResource("37_hvrd6")
 
 [node name="Background" type="Node2D" parent="." unique_id=2069389951 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
+z_index = -1
 script = ExtResource("1_1vjko")
 sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
 parallax_cloud_sprites = [NodePath("Clouds/Cloud1"), NodePath("Clouds/Cloud2"), NodePath("Clouds/Cloud3"), NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7"), NodePath("Clouds/Cloud8")]
@@ -373,3 +381,30 @@ level_select_scene = "uid://3mx3h7pbleho"
 
 [node name="Spring" parent="." unique_id=788447662 instance=ExtResource("36_hvrd6")]
 position = Vector2(67, 58)
+
+[node name="Birch1" parent="." unique_id=790892870 instance=ExtResource("39_y3pui")]
+z_index = -1
+position = Vector2(15, -49)
+tree_sprites = Array[Texture2D]([ExtResource("40_0j6b7"), ExtResource("40_0j6b7"), ExtResource("41_0k0fn"), ExtResource("42_i3v6o")])
+
+[node name="Birch2" parent="." unique_id=1423688412 instance=ExtResource("39_y3pui")]
+z_index = -1
+position = Vector2(535, -85)
+tree_sprites = Array[Texture2D]([ExtResource("40_0j6b7"), ExtResource("40_0j6b7"), ExtResource("41_0k0fn"), ExtResource("42_i3v6o")])
+
+[node name="Birch3" parent="." unique_id=1477151705 instance=ExtResource("39_y3pui")]
+z_index = -1
+position = Vector2(1472, 137)
+tree_sprites = Array[Texture2D]([ExtResource("40_0j6b7"), ExtResource("40_0j6b7"), ExtResource("41_0k0fn"), ExtResource("42_i3v6o")])
+
+[node name="Birch5" parent="." unique_id=2024597553 instance=ExtResource("39_y3pui")]
+z_index = -1
+position = Vector2(1877, -2)
+texture = ExtResource("43_0xdic")
+tree_sprites = Array[Texture2D]([ExtResource("43_0xdic"), ExtResource("43_0xdic"), ExtResource("44_5ipuv"), ExtResource("45_onmav")])
+
+[node name="Birch4" parent="." unique_id=1645701567 instance=ExtResource("39_y3pui")]
+z_index = -1
+position = Vector2(-285, -115)
+texture = ExtResource("43_0xdic")
+tree_sprites = Array[Texture2D]([ExtResource("43_0xdic"), ExtResource("43_0xdic"), ExtResource("44_5ipuv"), ExtResource("45_onmav")])

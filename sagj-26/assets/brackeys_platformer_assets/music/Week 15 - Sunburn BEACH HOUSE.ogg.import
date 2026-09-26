@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Week 15 - Sunburn BEACH HOUSE.ogg-691b4a861f1
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

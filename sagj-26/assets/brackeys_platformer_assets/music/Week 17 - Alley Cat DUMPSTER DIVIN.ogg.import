@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Week 17 - Alley Cat DUMPSTER DIVIN.ogg-04ee64
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

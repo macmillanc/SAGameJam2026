@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Week 23 - Workshop BREADBOARD.ogg-37478b95f44
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

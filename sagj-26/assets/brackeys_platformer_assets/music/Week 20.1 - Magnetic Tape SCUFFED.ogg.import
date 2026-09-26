@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Week 20.1 - Magnetic Tape SCUFFED.ogg-307a5ad
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

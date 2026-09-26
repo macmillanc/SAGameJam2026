@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var state_machine: StateMachine = $States
 @onready var camera: Camera2D = $Camera2D
+@onready var player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # --- Movement Physics ---
 @export var speed: float = 400.0
@@ -286,7 +287,8 @@ func jump() -> void:
 	# Do not allow jumping while season is changing
 	if changing_season:
 		return
-
+		
+	player.play( )
 	var jump_multiplier: float = pow(1.15, stage)
 	velocity.y = base_jump_velocity * jump_multiplier
 

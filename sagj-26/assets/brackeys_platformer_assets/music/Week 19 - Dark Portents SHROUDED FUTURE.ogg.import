@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Week 19 - Dark Portents SHROUDED FUTURE.ogg-e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
