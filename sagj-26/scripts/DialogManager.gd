@@ -28,6 +28,7 @@ func stop_dialog():
 	is_dialog_active = false
 	can_advance_line = false
 	current_line_index = 0
+	dialog_finished.emit()
 	
 func _show_text_box():
 	text_box = text_box_scene.instantiate()

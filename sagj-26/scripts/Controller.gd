@@ -215,6 +215,7 @@ func _input(event: InputEvent) -> void:
 		scale_time(2.0, 2.0)
 	
 	if event.is_action_pressed("escape"):
+		DialogManager.stop_dialog()
 		SceneManager.go_to_map()
 
 
@@ -306,6 +307,7 @@ func scale_time(seconds: float, percentage: float) -> void:
 		return
 	is_slowed = true
 	Engine.time_scale = percentage
+	base_jump_velocity -= 100
 	
 	# Determine target color
 	var target_color: Color = Color(1, 1, 1, 1)
@@ -325,6 +327,7 @@ func scale_time(seconds: float, percentage: float) -> void:
 	await get_tree().create_timer(seconds, true, false, true).timeout
 	
 	Engine.time_scale = 1.0
+	base_jump_velocity += 100
 	is_slowed = false
 	is_blurred = false
 	

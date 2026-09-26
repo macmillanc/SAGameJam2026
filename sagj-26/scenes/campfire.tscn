@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://q4k2lqrst3eh"]
 
 [ext_resource type="Texture2D" uid="uid://ceec7if2g4bm6" path="res://assets/GandalfHardcore FREE Platformer Assets/Animated Sprites/Campfire sheet.png" id="1_m47ar"]
-[ext_resource type="Script" uid="uid://b4f08chcwj5eq" path="res://scenes/campfire.gd" id="2_54scn"]
+[ext_resource type="Script" uid="uid://b4f08chcwj5eq" path="res://scripts/campfire.gd" id="2_54scn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54scn"]
 atlas = ExtResource("1_m47ar")
