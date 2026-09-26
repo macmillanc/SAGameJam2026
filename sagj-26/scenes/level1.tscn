@@ -406,13 +406,3 @@ script = ExtResource("35_6lx4c")
 [node name="End" parent="." unique_id=1537407309 instance=ExtResource("36_6xmqk")]
 position = Vector2(3096, 221)
 level_select_scene = "uid://3mx3h7pbleho"
-<<<<<<< HEAD
-
-[node name="Spring" parent="." unique_id=788447662 instance=ExtResource("36_hvrd6")]
-position = Vector2(67, 58)
-
-[node name="Campfire" parent="." unique_id=1602317639 instance=ExtResource("46_5ipuv")]
-z_index = 0
-position = Vector2(420, 0)
-=======
->>>>>>> 4f38a2c (finished level 4 + cutscenes)
