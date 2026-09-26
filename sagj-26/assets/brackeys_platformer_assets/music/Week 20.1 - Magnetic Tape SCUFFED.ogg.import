@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bxin4b5p0rkyj"
+path="res://.godot/imported/Week 20.1 - Magnetic Tape SCUFFED.ogg-307a5ad5f62096ea39ca66aa65c4d133.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 20.1 - Magnetic Tape SCUFFED.ogg"
+dest_files=["res://.godot/imported/Week 20.1 - Magnetic Tape SCUFFED.ogg-307a5ad5f62096ea39ca66aa65c4d133.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

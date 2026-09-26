@@ -6,10 +6,14 @@ extends Node2D
 
 @export_group("Camera Settings")
 @export var camera_speed: float = 400.0
+@export var level_music: AudioStream
 
 func _ready() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	refresh_map()
+	MusicManager.stop_music()
+	if level_music:
+		MusicManager.play_music(level_music)
 
 func _process(delta: float) -> void:
 	_handle_camera_movement(delta)

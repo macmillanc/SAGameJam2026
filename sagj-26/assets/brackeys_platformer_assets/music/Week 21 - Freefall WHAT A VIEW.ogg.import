@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bug4071stbk2m"
+path="res://.godot/imported/Week 21 - Freefall WHAT A VIEW.ogg-b09397b5bc898c127b91a0a1a23022fd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 21 - Freefall WHAT A VIEW.ogg"
+dest_files=["res://.godot/imported/Week 21 - Freefall WHAT A VIEW.ogg-b09397b5bc898c127b91a0a1a23022fd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

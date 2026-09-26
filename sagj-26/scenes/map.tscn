@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c54c5n0ug4rmp" path="res://scripts/map/Map.gd" id="1_0cso3"]
 [ext_resource type="Script" uid="uid://b4vj2shw062l3" path="res://scripts/map/LineDrawer.gd" id="2_2klcf"]
+[ext_resource type="AudioStream" uid="uid://cpq4cxwxnqlsg" path="res://assets/brackeys_platformer_assets/music/Week 24 - Pull Me Down GRAVITY.ogg" id="2_2lpho"]
 [ext_resource type="Script" uid="uid://df4sl2awnsqws" path="res://scripts/map/LevelNode.gd" id="3_2lpho"]
 [ext_resource type="Texture2D" uid="uid://c1e1hpe1poeit" path="res://assets/UI-backgrounds/Levels.png" id="4_0cso3"]
 
@@ -10,6 +11,7 @@ script = ExtResource("1_0cso3")
 line_drawer = NodePath("LineDrawer")
 levels_container = NodePath("Levels")
 camera = NodePath("Camera2D")
+level_music = ExtResource("2_2lpho")
 
 [node name="LineDrawer" type="Node2D" parent="." unique_id=2024711699 node_paths=PackedStringArray("levels_container")]
 script = ExtResource("2_2klcf")

@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://di18tfqujk8b6"]
 
+[ext_resource type="Script" uid="uid://c760pxqt85hof" path="res://scripts/level_4.gd" id="1_bgkbf"]
 [ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scripts/background.gd" id="1_bx2t0"]
 [ext_resource type="Texture2D" uid="uid://bqibhcb411bkh" path="res://assets/decor/Volcano.png" id="1_ro5wt"]
 [ext_resource type="Texture2D" uid="uid://bdl03ts0ks0x2" path="res://assets/Clouds/Clouds 2/1.png" id="2_ih1td"]
+[ext_resource type="AudioStream" uid="uid://cqqawixh7q6pi" path="res://assets/brackeys_platformer_assets/music/Week 19 - Dark Portents MYSTERIOUS TRAVELER.ogg" id="2_ro5wt"]
 [ext_resource type="Texture2D" uid="uid://bmnky4yq7pk3x" path="res://assets/Clouds/Clouds 3/1.png" id="3_6cil5"]
 [ext_resource type="Texture2D" uid="uid://bsgcpxxhdkrlm" path="res://assets/Clouds/Clouds 4/1.png" id="4_x02yq"]
 [ext_resource type="Texture2D" uid="uid://dxqj44u016nak" path="res://assets/Clouds/Clouds 5/1.png" id="5_sh1tq"]
@@ -37,8 +39,6 @@
 [ext_resource type="PackedScene" uid="uid://m0qw3glv0jcp" path="res://scenes/door_and_button.tscn" id="34_sai06"]
 [ext_resource type="Shader" uid="uid://opy3423tosuf" path="res://shaders/acid.gdshader" id="35_kp7dg"]
 [ext_resource type="Shader" uid="uid://c56huw1q0fpjy" path="res://shaders/below_acid.gdshader" id="37_bgkbf"]
-[ext_resource type="Script" uid="uid://dl5p6pplyrke1" path="res://scenes/liquid_lowering.gd" id="37_ro5wt"]
-[ext_resource type="Script" uid="uid://bijh777qwtui7" path="res://scenes/liquid_below_if_lowering.gd" id="39_bgkbf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lep3q"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -221,7 +221,9 @@ custom_data_layer_0/name = "is_deadly"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_6237k")
 
-[node name="Node2D" type="Node2D" unique_id=1176575903]
+[node name="Level4" type="Node2D" unique_id=1176575903]
+script = ExtResource("1_bgkbf")
+level_music = ExtResource("2_ro5wt")
 
 [node name="Background" type="Node2D" parent="." unique_id=467930393 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
 position = Vector2(0, -250)
@@ -424,12 +426,10 @@ position = Vector2(159, -245)
 [node name="Liquid" type="TileMapLayer" parent="." unique_id=421788866]
 material = SubResource("ShaderMaterial_irjq1")
 tile_set = SubResource("TileSet_2fx8r")
-script = ExtResource("37_ro5wt")
 
 [node name="LiquidBelowIfRising" type="TileMapLayer" parent="Liquid" unique_id=1365823142]
 material = SubResource("ShaderMaterial_auxgl")
 position = Vector2(0, -3)
 tile_set = SubResource("TileSet_klddm")
-script = ExtResource("39_bgkbf")
 
 [editable path="Doors/DoorAndButton"]

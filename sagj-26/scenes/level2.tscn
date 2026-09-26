@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://c5w3i4t1f36ax"]
 
+[ext_resource type="Script" uid="uid://ib0x53s4r8jw" path="res://scripts/level_2.gd" id="1_go57r"]
 [ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scripts/background.gd" id="1_icuov"]
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="2_2k3dv"]
+[ext_resource type="AudioStream" uid="uid://cf44rs2f12oq0" path="res://assets/brackeys_platformer_assets/music/Week 18 - Distant Skyline CITY LIGHTS.ogg" id="2_58bux"]
 [ext_resource type="Texture2D" uid="uid://bdl03ts0ks0x2" path="res://assets/Clouds/Clouds 2/1.png" id="2_xnv6s"]
 [ext_resource type="Texture2D" uid="uid://bmnky4yq7pk3x" path="res://assets/Clouds/Clouds 3/1.png" id="3_6lk74"]
 [ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="3_alqfr"]
@@ -37,8 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://bmvjb767vm6l7" path="res://assets/decor/Arrows.png" id="32_etc3t"]
 [ext_resource type="Script" uid="uid://808gq1p5brvj" path="res://scripts/canvas_modulate.gd" id="32_tnhgu"]
 [ext_resource type="Shader" uid="uid://c56huw1q0fpjy" path="res://shaders/below_acid.gdshader" id="33_ehxya"]
-[ext_resource type="Script" uid="uid://dxclyw13nr7vm" path="res://scenes/liquid.gd" id="33_icuov"]
-[ext_resource type="Script" uid="uid://dyy2b7jrolrb2" path="res://scenes/water_body.gd" id="34_xnv6s"]
+[ext_resource type="Script" uid="uid://dxclyw13nr7vm" path="res://scripts/liquid.gd" id="33_icuov"]
+[ext_resource type="Script" uid="uid://dyy2b7jrolrb2" path="res://scripts/water_body.gd" id="34_xnv6s"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="39_tn25f"]
 [ext_resource type="PackedScene" uid="uid://m0qw3glv0jcp" path="res://scenes/door_and_button.tscn" id="40_5b1db"]
 
@@ -250,7 +252,9 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/4 = SubResource("TileSetAtlasSource_8x6ip")
 
-[node name="Node2D" type="Node2D" unique_id=1452658447]
+[node name="Level2" type="Node2D" unique_id=1452658447]
+script = ExtResource("1_go57r")
+level_music = ExtResource("2_58bux")
 
 [node name="Background" type="Node2D" parent="." unique_id=191528396 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
 position = Vector2(0, -250)

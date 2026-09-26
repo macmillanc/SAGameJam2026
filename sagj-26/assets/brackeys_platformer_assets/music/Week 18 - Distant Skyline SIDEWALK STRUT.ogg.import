@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwdspx7gmkknc"
+path="res://.godot/imported/Week 18 - Distant Skyline SIDEWALK STRUT.ogg-3d6840672bef9105d3daa60c76afcc97.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 18 - Distant Skyline SIDEWALK STRUT.ogg"
+dest_files=["res://.godot/imported/Week 18 - Distant Skyline SIDEWALK STRUT.ogg-3d6840672bef9105d3daa60c76afcc97.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

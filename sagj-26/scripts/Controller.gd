@@ -371,6 +371,9 @@ func get_water_speed_multiplier() -> float:
 				return 0.5 # Slows speed down to 50% while in water
 	return 1.0
 
+func spring(springJump : float):
+	velocity.y = -springJump
+
 func check_hazards() -> void:
 	var water_layers = get_tree().get_nodes_in_group("liquid_layer")
 	for layer in water_layers:

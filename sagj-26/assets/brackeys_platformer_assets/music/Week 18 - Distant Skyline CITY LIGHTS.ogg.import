@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cf44rs2f12oq0"
+path="res://.godot/imported/Week 18 - Distant Skyline CITY LIGHTS.ogg-873346b1e25629e22846b8ca250d6a64.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 18 - Distant Skyline CITY LIGHTS.ogg"
+dest_files=["res://.godot/imported/Week 18 - Distant Skyline CITY LIGHTS.ogg-873346b1e25629e22846b8ca250d6a64.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

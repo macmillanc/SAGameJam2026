@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d4kd4k6r8bpfp"
+path="res://.godot/imported/Week 16 - Vacation Day ADVENTURE.ogg-aec03598990961e98f01be06907e81cd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 16 - Vacation Day ADVENTURE.ogg"
+dest_files=["res://.godot/imported/Week 16 - Vacation Day ADVENTURE.ogg-aec03598990961e98f01be06907e81cd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

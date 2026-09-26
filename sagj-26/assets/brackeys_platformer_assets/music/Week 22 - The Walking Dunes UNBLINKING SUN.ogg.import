@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yn8vsnvai1w2"
+path="res://.godot/imported/Week 22 - The Walking Dunes UNBLINKING SUN.ogg-e402e4cb94a180ae16a88a6f8703894d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 22 - The Walking Dunes UNBLINKING SUN.ogg"
+dest_files=["res://.godot/imported/Week 22 - The Walking Dunes UNBLINKING SUN.ogg-e402e4cb94a180ae16a88a6f8703894d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

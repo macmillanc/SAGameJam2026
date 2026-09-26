@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmpe64mfv31py"
+path="res://.godot/imported/Week 22 - The Walking Dunes EVENING OASIS.ogg-5503bd8798080eafaa9e00258c54bc0b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 22 - The Walking Dunes EVENING OASIS.ogg"
+dest_files=["res://.godot/imported/Week 22 - The Walking Dunes EVENING OASIS.ogg-5503bd8798080eafaa9e00258c54bc0b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

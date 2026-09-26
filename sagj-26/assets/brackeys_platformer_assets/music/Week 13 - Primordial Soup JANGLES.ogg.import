@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ish4tltv6xo"
+path="res://.godot/imported/Week 13 - Primordial Soup JANGLES.ogg-b260ee4a8d16e83b343ce7e761c3448e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 13 - Primordial Soup JANGLES.ogg"
+dest_files=["res://.godot/imported/Week 13 - Primordial Soup JANGLES.ogg-b260ee4a8d16e83b343ce7e761c3448e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

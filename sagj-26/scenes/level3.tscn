@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://7wqck613pxsp"]
 
 [ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scripts/background.gd" id="1_16ffm"]
+[ext_resource type="Script" uid="uid://cgvccbemhldes" path="res://scripts/level_3.gd" id="1_byu6n"]
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="1_jyq2n"]
+[ext_resource type="AudioStream" uid="uid://cg4og2e06oml0" path="res://assets/brackeys_platformer_assets/music/Week 26 - Seaside CORAL REEF.ogg" id="2_1ptrm"]
 [ext_resource type="Texture2D" uid="uid://bdl03ts0ks0x2" path="res://assets/Clouds/Clouds 2/1.png" id="2_kvrlk"]
 [ext_resource type="Texture2D" uid="uid://bygg14jsvxs6i" path="res://assets/ground/Slopes-4.png" id="3_6lxtr"]
 [ext_resource type="Texture2D" uid="uid://bmnky4yq7pk3x" path="res://assets/Clouds/Clouds 3/1.png" id="3_85fmh"]
@@ -36,9 +38,9 @@
 [ext_resource type="Texture2D" uid="uid://oecov1ogx1t1" path="res://assets/decor/Background_Wall-2.png" id="27_16ffm"]
 [ext_resource type="Shader" uid="uid://cnilxtn7n22go" path="res://shaders/metal.gdshader" id="29_qbf7f"]
 [ext_resource type="Shader" uid="uid://opy3423tosuf" path="res://shaders/acid.gdshader" id="31_qbf7f"]
-[ext_resource type="Script" uid="uid://dq584h16rpcd0" path="res://scenes/acid.gd" id="32_qbf7f"]
+[ext_resource type="Script" uid="uid://dq584h16rpcd0" path="res://scripts/acid.gd" id="32_qbf7f"]
 [ext_resource type="Shader" uid="uid://c56huw1q0fpjy" path="res://shaders/below_acid.gdshader" id="33_rpsh2"]
-[ext_resource type="Script" uid="uid://cwrq3stu41tyd" path="res://scenes/acid_below_if_rising.gd" id="34_fd0i2"]
+[ext_resource type="Script" uid="uid://cwrq3stu41tyd" path="res://scripts/acid_below_if_rising.gd" id="34_fd0i2"]
 [ext_resource type="PackedScene" uid="uid://d2f5wsaad13a2" path="res://scenes/crate.tscn" id="40_fd0i2"]
 [ext_resource type="Texture2D" uid="uid://bmvjb767vm6l7" path="res://assets/decor/Arrows.png" id="41_rpsh2"]
 
@@ -220,7 +222,9 @@ custom_data_layer_0/name = "is_deadly"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_g66mc")
 
-[node name="Node2D" type="Node2D" unique_id=752880690]
+[node name="Level3" type="Node2D" unique_id=752880690]
+script = ExtResource("1_byu6n")
+level_music = ExtResource("2_1ptrm")
 
 [node name="Background" type="Node2D" parent="." unique_id=1704939065 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
 position = Vector2(0, -250)

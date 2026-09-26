@@ -1,5 +1,6 @@
 class_name Crate
 extends RigidBody2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 
 @export var current_stage: int = 3:
 	set(value):
@@ -142,7 +143,6 @@ func update_collision() -> void:
 		return
 
 	collision_shape.disabled = false
-
 	# Bottom row custom collision handling (all rotted crates shrink down)
 	if active_grid_pos.y == 1:
 		collision_shape.shape.size = small_collision_size
@@ -161,4 +161,5 @@ func update_collision() -> void:
 
 
 func explode() -> void:
+	audio_stream_player_2d.play()
 	queue_free()

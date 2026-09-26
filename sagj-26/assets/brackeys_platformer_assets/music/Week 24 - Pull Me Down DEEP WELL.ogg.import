@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ye30gxcwbu0h"
+path="res://.godot/imported/Week 24 - Pull Me Down DEEP WELL.ogg-b16b4ab29e83f144cce835c292ea669f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 24 - Pull Me Down DEEP WELL.ogg"
+dest_files=["res://.godot/imported/Week 24 - Pull Me Down DEEP WELL.ogg-b16b4ab29e83f144cce835c292ea669f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

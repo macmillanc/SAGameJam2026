@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://be07uctybuktc"]
 
 [ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scripts/background.gd" id="1_1vjko"]
+[ext_resource type="Script" uid="uid://ccmtg5ivk1k2o" path="res://scripts/level_1.gd" id="1_y3pui"]
 [ext_resource type="Texture2D" uid="uid://bdl03ts0ks0x2" path="res://assets/Clouds/Clouds 2/1.png" id="3_7vcq6"]
 [ext_resource type="Texture2D" uid="uid://bmnky4yq7pk3x" path="res://assets/Clouds/Clouds 3/1.png" id="4_dqir8"]
 [ext_resource type="Texture2D" uid="uid://bsgcpxxhdkrlm" path="res://assets/Clouds/Clouds 4/1.png" id="5_0j6b7"]
@@ -35,6 +36,8 @@
 [ext_resource type="Script" uid="uid://808gq1p5brvj" path="res://scripts/canvas_modulate.gd" id="35_6lx4c"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="35_qfp7r"]
 [ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="36_6xmqk"]
+[ext_resource type="PackedScene" uid="uid://b843etox4v5lp" path="res://scenes/spring.tscn" id="36_hvrd6"]
+[ext_resource type="AudioStream" uid="uid://d12pm7pb564al" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="37_hvrd6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hvrd6"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -128,7 +131,9 @@ texture_region_size = Vector2i(32, 64)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_0epgs")
 
-[node name="Node2D" type="Node2D" unique_id=1307195318]
+[node name="Level1" type="Node2D" unique_id=1307195318]
+script = ExtResource("1_y3pui")
+level_music = ExtResource("37_hvrd6")
 
 [node name="Background" type="Node2D" parent="." unique_id=2069389951 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
 script = ExtResource("1_1vjko")
@@ -365,3 +370,6 @@ script = ExtResource("35_6lx4c")
 [node name="End" parent="." unique_id=1537407309 instance=ExtResource("36_6xmqk")]
 position = Vector2(3096, 221)
 level_select_scene = "uid://3mx3h7pbleho"
+
+[node name="Spring" parent="." unique_id=788447662 instance=ExtResource("36_hvrd6")]
+position = Vector2(67, 58)

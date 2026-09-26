@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1qelp16mn0t"
+path="res://.godot/imported/Week 25 - Have A Great Summer POOL PARTY.ogg-f1c916e283b612da082952e577a9a482.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/brackeys_platformer_assets/music/Week 25 - Have A Great Summer POOL PARTY.ogg"
+dest_files=["res://.godot/imported/Week 25 - Have A Great Summer POOL PARTY.ogg-f1c916e283b612da082952e577a9a482.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

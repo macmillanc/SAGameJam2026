@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blocrqisjjrua" path="res://scripts/Crate.gd" id="1_b66cd"]
 [ext_resource type="Script" uid="uid://rpbbyos3x0yx" path="res://scripts/crate_node.gd" id="1_kn6iu"]
+[ext_resource type="AudioStream" uid="uid://cg87v5arn4idl" path="res://assets/brackeys_platformer_assets/sounds/explosion.wav" id="3_kn6iu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dwt0d"]
 load_path = "res://.godot/imported/Crates.png-d72f16c19fcc0158dfe3598ca7008f6e.ctex"
@@ -42,3 +43,6 @@ lifetime = 0.4
 one_shot = true
 explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_rmpeg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1332146785]
+stream = ExtResource("3_kn6iu")

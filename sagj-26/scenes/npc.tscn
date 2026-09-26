@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cfkg8ltl1uwwp" path="res://assets/npc/moss_guy.png" id="1_nh2m4"]
 [ext_resource type="Script" uid="uid://cldjblqo36vx2" path="res://scripts/npc.gd" id="1_rv78h"]
 [ext_resource type="PackedScene" uid="uid://cnu8sgdtxnun3" path="res://scenes/interaction_area.tscn" id="2_abqhh"]
+[ext_resource type="AudioStream" uid="uid://cpbxvjx0w4gee" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="4_7n8xq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdvrb"]
 
@@ -23,3 +24,6 @@ texture = ExtResource("1_nh2m4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1639015301]
 shape = SubResource("CircleShape2D_vdvrb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1820832117]
+stream = ExtResource("4_7n8xq")

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # 1. Define sets of lines for different levels
 const LEVEL_1_LINES: Array[String] = [
@@ -45,6 +46,8 @@ func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact():
+	
+	audio_stream_player_2d.play()
 	# 2. Figure out which level we are currently on
 	var level_num: int = _get_current_level_number()
 	
