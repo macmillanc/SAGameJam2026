@@ -210,13 +210,19 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("slow_time"):
 		scale_time(2.0, 0.5)
+		MusicManager.set_game_speed_pitch(0.5)
 	
 	if event.is_action_pressed("speed_time"):
 		scale_time(2.0, 2.0)
+		MusicManager.set_game_speed_pitch(2.0)
 	
 	if event.is_action_pressed("escape"):
 		DialogManager.stop_dialog()
 		SceneManager.go_to_map()
+
+func reset_time_speed():
+	Engine.time_scale = 1.0
+	MusicManager.set_game_speed_pitch(1.0)
 
 
 func start_season_change(duration: float = 2.0) -> void:
@@ -229,6 +235,27 @@ func start_season_change(duration: float = 2.0) -> void:
 	
 	print("SEASON: Starting smooth transition from ", start_season, " to ", target_season)
 	
+	# --- MUSIC PITCH RULES ---
+	var season_pitch_ranges = [
+		[0.95, 1.05], # Index 0: Spring
+		[1.10, 1.25], # Index 1: Summer
+		[0.85, 0.95], # Index 2: Autumn
+		[0.70, 0.80]  # Index 3: Winter
+	]
+	
+	var min_pitch = 0.8
+	var max_pitch = 1.2
+	if target_season >= 0 and target_season < season_pitch_ranges.size():
+		min_pitch = season_pitch_ranges[target_season][0]
+		max_pitch = season_pitch_ranges[target_season][1]
+		
+	var random_target_pitch: float = randf_range(min_pitch, max_pitch)
+	
+	# Tell the MusicManager to twist its pitch smoothly over the transition duration!
+	if MusicManager.has_method("twist_pitch"):
+		MusicManager.twist_pitch(random_target_pitch, duration)
+	# --------------------------
+
 	var elapsed: float = 0.0
 	
 	# Continuous progress loop over the specified duration
@@ -247,7 +274,6 @@ func start_season_change(duration: float = 2.0) -> void:
 	stage += 1
 	if stage >= 5:
 		game_over()
-		
 		return
 
 	if stage_textures.size() > stage and stage_textures[stage]:
@@ -259,6 +285,7 @@ func start_season_change(duration: float = 2.0) -> void:
 	get_tree().call_group("season_objects", "update_tree")
 	get_tree().call_group("Crates", "on_season_changed")
 	get_tree().call_group("season_objects", "update_waves")
+
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -326,7 +353,7 @@ func scale_time(seconds: float, percentage: float) -> void:
 	
 	await get_tree().create_timer(seconds, true, false, true).timeout
 	
-	Engine.time_scale = 1.0
+	reset_time_speed()
 	base_jump_velocity += 100
 	is_slowed = false
 	is_blurred = false

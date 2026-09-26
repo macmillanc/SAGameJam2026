@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SAGJ26"
-run/main_scene="uid://bwj04lwkfa5nh"
+run/main_scene="uid://be07uctybuktc"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
