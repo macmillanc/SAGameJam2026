@@ -27,6 +27,34 @@ var min_stage: Dictionary = {
 }
 
 
+# Define the starting season for each level (0: Spring, 1: Summer, 2: Autumn, 3: Winter)
+var level_starting_seasons: Dictionary = {
+	1: 0, # Cloud 9 starts in Spring
+	2: 1, # Deep Water starts in Summer
+	3: 2, # Pollution inc starts in Autumn
+	4: 3, # Deserted starts in Winter
+	5: 0  # Mt Doom starts in Spring
+}
+
+
+# --------------------------------------------------
+# LEVEL MANAGEMENT & SEASON RESETTING
+# --------------------------------------------------
+
+func change_level(scene_path: String, level_number: int) -> void:
+	# Set the starting season and reset transitions based on the level configuration,
+	# falling back to 0 if the level isn't found in the dictionary.
+	if level_starting_seasons.has(level_number):
+		season = level_starting_seasons[level_number]
+	else:
+		season = 0
+		
+	season_transitions = 0
+	last_played_level = scene_path
+	
+	get_tree().change_scene_to_file(scene_path)
+
+
 # --------------------------------------------------
 # WATER
 # --------------------------------------------------

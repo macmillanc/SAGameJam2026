@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var level_index: int = 0 
-# Updated default path to map.tscn
 @export_file("*.tscn") var level_select_scene: String = "res://scenes/map.tscn"
 
 var triggered: bool = false
@@ -22,5 +21,9 @@ func _complete_level(player: Node2D) -> void:
 
 	if player.has_method("disable_controls"):
 		player.call("disable_controls")
+
+	# RESET SEASONS WHEN LEAVING THE LEVEL
+	Global.season = 0
+	Global.season_transitions = 0
 
 	SceneManager.change_scene(level_select_scene)

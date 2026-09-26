@@ -22,14 +22,25 @@ const LEVEL_2_LINES: Array[String] = [
 ]
 
 const LEVEL_3_LINES: Array[String] = [
-	"Well this seems to be where the crates are from",
-	"And it seems to be a bit unsafe",
-	"With all the acid and all . . ."
+	"We seem to have got stuck in a giant factory",
+	"And it seems that it's been abandoned for some reason . . .",
+	"Maybe the acid",
+	"Probably the acid"
+	
+]
+
+const LEVEL_4_LINES: Array[String] = [
+	"Well good we got out of the giant evil factory",
+	"I mean we still have no idea of where they could have gone",
+	"But being confused is better than burning alive",
+	"I still have no idea why we haven't seen anyone else around",
+	"Maybe it's because of the giant volcano . . ."
+	
 	
 ]
 
 const DEFAULT_LINES: Array[String] = [
-	"Keep pushing forward! [Press E to Continue]"
+	"Keep going!"
 ]
 
 func _ready():
@@ -48,6 +59,8 @@ func _on_interact():
 			active_lines = LEVEL_2_LINES
 		3:
 			active_lines = LEVEL_3_LINES
+		4:
+			active_lines = LEVEL_4_LINES
 		# Add more levels here as you build them (e.g., 3: LEVEL_3_LINES)
 
 	# 4. Start the dialog with the selected lines
