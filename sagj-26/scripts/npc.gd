@@ -18,7 +18,7 @@ const LEVEL_2_LINES: Array[String] = [
 	"Anyway that river to the right looks very dangerous but it seems to be the only way forward",
 	"You might need to slow down things when trying to cross it",
 	"Also remember two things",
-	"If you're slower you can jump higher",
+	"If you're smaller you can jump higher",
 	"And don't drown XD"
 ]
 

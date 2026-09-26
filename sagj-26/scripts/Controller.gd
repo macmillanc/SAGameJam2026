@@ -21,8 +21,8 @@ extends CharacterBody2D
 @export var accel: float = 900.0
 @export var decel: float = 300.0
 @export var base_jump_velocity: float = -350.0
-@export var fall_limit: float = 500.0
-@export var max_lives: int = 3
+@export var fall_limit: float = 550.0
+@export var max_lives: int = 5
 @export_file("*.tscn") var game_over_scene: String
 
 var current_lives: int

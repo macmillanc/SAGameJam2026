@@ -36,7 +36,6 @@
 [ext_resource type="Script" uid="uid://808gq1p5brvj" path="res://scripts/canvas_modulate.gd" id="35_6lx4c"]
 [ext_resource type="PackedScene" uid="uid://c41x3f5rj1r2f" path="res://scenes/npc.tscn" id="35_qfp7r"]
 [ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="36_6xmqk"]
-[ext_resource type="PackedScene" uid="uid://b843etox4v5lp" path="res://scenes/spring.tscn" id="36_hvrd6"]
 [ext_resource type="AudioStream" uid="uid://d12pm7pb564al" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="37_hvrd6"]
 [ext_resource type="PackedScene" uid="uid://da0x67j7e1baw" path="res://scenes/trees.tscn" id="39_y3pui"]
 [ext_resource type="Texture2D" uid="uid://dd4w4r0nfxguk" path="res://assets/GandalfHardcore FREE Platformer Assets/Birch1.png" id="40_0j6b7"]
@@ -397,7 +396,6 @@ script = ExtResource("33_dkkmk")
 
 [node name="Rock_Scene" parent="." unique_id=1025934399 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("34_sejw4")]
 canvas_modulate = NodePath("../CanvasModulate")
-max_lives = 5
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("35_qfp7r")]
 position = Vector2(250, 27.5)
@@ -408,6 +406,7 @@ script = ExtResource("35_6lx4c")
 [node name="End" parent="." unique_id=1537407309 instance=ExtResource("36_6xmqk")]
 position = Vector2(3096, 221)
 level_select_scene = "uid://3mx3h7pbleho"
+<<<<<<< HEAD
 
 [node name="Spring" parent="." unique_id=788447662 instance=ExtResource("36_hvrd6")]
 position = Vector2(67, 58)
@@ -415,3 +414,5 @@ position = Vector2(67, 58)
 [node name="Campfire" parent="." unique_id=1602317639 instance=ExtResource("46_5ipuv")]
 z_index = 0
 position = Vector2(420, 0)
+=======
+>>>>>>> 4f38a2c (finished level 4 + cutscenes)

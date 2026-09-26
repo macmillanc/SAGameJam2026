@@ -400,6 +400,9 @@ max_lives = 5
 [node name="crate" parent="Crates" unique_id=429667971 instance=ExtResource("40_fd0i2")]
 position = Vector2(2354, -4)
 
+[node name="crate7" parent="Crates" unique_id=1485496011 instance=ExtResource("40_fd0i2")]
+position = Vector2(2354, -4)
+
 [node name="crate2" parent="Crates" unique_id=1683302832 instance=ExtResource("40_fd0i2")]
 position = Vector2(2354, -70)
 

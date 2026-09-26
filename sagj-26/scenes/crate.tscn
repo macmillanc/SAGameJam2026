@@ -20,7 +20,7 @@ initial_velocity_max = 200.0
 gravity = Vector3(0, 980, 0)
 color = Color(0.54509807, 0.3529412, 0.16862746, 1)
 
-[node name="Node2D" type="Node2D" unique_id=429667971]
+[node name="Node2D" type="Node2D" unique_id=429667971 groups=["object"]]
 script = ExtResource("1_kn6iu")
 
 [node name="Crate" type="RigidBody2D" parent="." unique_id=1617084253]

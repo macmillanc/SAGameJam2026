@@ -21,7 +21,7 @@ var level_names: Dictionary = {
 var min_stage: Dictionary = {
 	1: 1, 
 	2: 0,
-	3: 0,
+	3: 2,
 	4: 0,
 	5: 0
 }

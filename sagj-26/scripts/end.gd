@@ -14,8 +14,13 @@ func _on_body_entered(body: Node2D) -> void:
 		_complete_level.call_deferred(body)
 
 func _complete_level(player: Node2D) -> void:
-	print("LEVEL COMPLETE!")
-
+	print(Global.highest_level)
+	if Global.highest_level == 0:
+		Global.season = 0
+		Global.highest_level = level_index + 1
+		Global.season_transitions = 0
+		SceneManager.change_scene("res://cutscene.tscn")
+		return
 	if level_index + 1 > Global.highest_level:
 		Global.highest_level = level_index + 1
 

@@ -82,7 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36y2u"]
-size = Vector2(49.5, 7.5)
+size = Vector2(49.5, 15.5)
 
 [node name="Spring" type="Area2D" unique_id=788447662]
 collision_layer = 3
@@ -97,7 +97,7 @@ animation = &"bounce"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=959707534]
-position = Vector2(0.25, -11.75)
+position = Vector2(0.25, -7.75)
 shape = SubResource("RectangleShape2D_36y2u")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1827425655]
