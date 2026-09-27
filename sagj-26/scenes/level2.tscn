@@ -4,32 +4,21 @@
 [ext_resource type="Script" uid="uid://ch4uk216bh6nl" path="res://scripts/background.gd" id="1_icuov"]
 [ext_resource type="PackedScene" uid="uid://p3bo1d76iv03" path="res://scenes/rock.tscn" id="2_2k3dv"]
 [ext_resource type="AudioStream" uid="uid://cf44rs2f12oq0" path="res://assets/brackeys_platformer_assets/music/Week 18 - Distant Skyline CITY LIGHTS.ogg" id="2_58bux"]
-[ext_resource type="Texture2D" uid="uid://bdl03ts0ks0x2" path="res://assets/Clouds/Clouds 2/1.png" id="2_xnv6s"]
-[ext_resource type="Texture2D" uid="uid://bmnky4yq7pk3x" path="res://assets/Clouds/Clouds 3/1.png" id="3_6lk74"]
 [ext_resource type="PackedScene" uid="uid://cs4qj0pfh1afj" path="res://scenes/end.tscn" id="3_alqfr"]
 [ext_resource type="Texture2D" uid="uid://bsgcpxxhdkrlm" path="res://assets/Clouds/Clouds 4/1.png" id="4_wso6h"]
 [ext_resource type="Texture2D" uid="uid://dxqj44u016nak" path="res://assets/Clouds/Clouds 5/1.png" id="5_4vsvd"]
 [ext_resource type="Texture2D" uid="uid://37qcfde1vgrv" path="res://assets/Clouds/Clouds 6/1.png" id="6_ehxya"]
 [ext_resource type="Texture2D" uid="uid://d077nu7hcdyr" path="res://assets/Clouds/Clouds 7/1.png" id="7_tn25f"]
-[ext_resource type="Texture2D" uid="uid://d2gpx37xwaaj8" path="res://assets/Clouds/Clouds 8/1.png" id="8_5b1db"]
 [ext_resource type="Script" uid="uid://cx8fhrpcnmahv" path="res://scripts/clouds.gd" id="9_etc3t"]
-[ext_resource type="Texture2D" uid="uid://by1c5mf120hiy" path="res://assets/Clouds/Clouds 1/2.png" id="10_go57r"]
-[ext_resource type="Texture2D" uid="uid://dc852o6rdcqdr" path="res://assets/Clouds/Clouds 2/3.png" id="11_58bux"]
-[ext_resource type="Texture2D" uid="uid://bph71e71ibxen" path="res://assets/Clouds/Clouds 3/3.png" id="12_7wm5o"]
 [ext_resource type="Texture2D" uid="uid://gmqxxlnwsl7w" path="res://assets/Clouds/Clouds 4/3.png" id="13_p8hhf"]
 [ext_resource type="Texture2D" uid="uid://cmdq2m7oysf05" path="res://assets/Clouds/Clouds 5/4.png" id="14_q43j7"]
 [ext_resource type="Texture2D" uid="uid://onncgkcqmrxf" path="res://assets/Clouds/Clouds 6/4.png" id="15_6tj06"]
 [ext_resource type="Texture2D" uid="uid://cv8tdokgcavj4" path="res://assets/Clouds/Clouds 7/3.png" id="16_30fb6"]
-[ext_resource type="Texture2D" uid="uid://cgtqoip5pno1s" path="res://assets/Clouds/Clouds 8/2.png" id="17_yuxxq"]
 [ext_resource type="Script" uid="uid://boxjwei3ug8on" path="res://scripts/large_clouds.gd" id="18_v4jxo"]
-[ext_resource type="Texture2D" uid="uid://cvkmgbuto4wbv" path="res://assets/Clouds/Clouds 1/4.png" id="19_lv1ek"]
-[ext_resource type="Texture2D" uid="uid://uty7fm2d5284" path="res://assets/Clouds/Clouds 2/4.png" id="20_ri7w7"]
-[ext_resource type="Texture2D" uid="uid://tn740ri6ytlt" path="res://assets/Clouds/Clouds 3/4.png" id="21_gxpvt"]
 [ext_resource type="Texture2D" uid="uid://cyug7jkcyk7uj" path="res://assets/Clouds/Clouds 4/4.png" id="22_kxd52"]
 [ext_resource type="Texture2D" uid="uid://bgau38myd7xgb" path="res://assets/Clouds/Clouds 5/5.png" id="23_voiyu"]
 [ext_resource type="Texture2D" uid="uid://b07m0lqqk4gw4" path="res://assets/Clouds/Clouds 6/6.png" id="24_7gtag"]
 [ext_resource type="Texture2D" uid="uid://dm7knwp6y7fnp" path="res://assets/Clouds/Clouds 7/4.png" id="25_a1fvl"]
-[ext_resource type="Texture2D" uid="uid://brrgill3n0tin" path="res://assets/Clouds/Clouds 8/3.png" id="26_rcxxg"]
 [ext_resource type="PackedScene" uid="uid://d2f5wsaad13a2" path="res://scenes/crate.tscn" id="27_4vsvd"]
 [ext_resource type="Shader" uid="uid://djuekkfybo7o1" path="res://shaders/sand_texture.gdshader" id="27_odav0"]
 [ext_resource type="Texture2D" uid="uid://bygg14jsvxs6i" path="res://assets/ground/Slopes-4.png" id="27_xctje"]
@@ -59,9 +48,6 @@
 [ext_resource type="AudioStream" uid="uid://c5nep0bn8vd50" path="res://assets/brackeys_platformer_assets/music/Week 21 - Freefall GLIDE.ogg" id="44_7wm5o"]
 [ext_resource type="PackedScene" uid="uid://q4k2lqrst3eh" path="res://scenes/campfire.tscn" id="45_p8hhf"]
 [ext_resource type="AudioStream" uid="uid://yn8vsnvai1w2" path="res://assets/brackeys_platformer_assets/music/Week 22 - The Walking Dunes UNBLINKING SUN.ogg" id="59_xctje"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8jrt"]
-load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3sfjd"]
 shader = ExtResource("29_ehxya")
@@ -276,31 +262,14 @@ level_music = ExtResource("2_58bux")
 z_index = -2
 position = Vector2(0, -250)
 script = ExtResource("1_icuov")
-sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
-parallax_cloud_sprites = [NodePath("Clouds/Cloud1"), NodePath("Clouds/Cloud2"), NodePath("Clouds/Cloud3"), NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7"), NodePath("Clouds/Cloud8")]
-large_cloud_sprites = [NodePath("LargeClouds/LargeCloud1"), NodePath("LargeClouds/LargeCloud2"), NodePath("LargeClouds/LargeCloud3"), NodePath("LargeClouds/LargeCloud4"), NodePath("LargeClouds/LargeCloud5"), NodePath("LargeClouds/LargeCloud6"), NodePath("LargeClouds/LargeCloud7"), NodePath("LargeClouds/LargeCloud8")]
+sky_sprites = [NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7")]
+parallax_cloud_sprites = [NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7")]
+large_cloud_sprites = [NodePath("LargeClouds/LargeCloud4"), NodePath("LargeClouds/LargeCloud5"), NodePath("LargeClouds/LargeCloud6"), NodePath("LargeClouds/LargeCloud7")]
 
 [node name="Sky" type="Parallax2D" parent="Background" unique_id=86406718]
 scroll_scale = Vector2(0.05, 0.05)
 repeat_size = Vector2(576, 324)
 repeat_times = 3
-
-[node name="Sky1" type="Sprite2D" parent="Background/Sky" unique_id=1974018856]
-texture_filter = 1
-texture_repeat = 2
-scale = Vector2(2, 2)
-texture = SubResource("CompressedTexture2D_f8jrt")
-centered = false
-
-[node name="Sky2" type="Sprite2D" parent="Background/Sky" unique_id=1679908921]
-scale = Vector2(2, 2)
-texture = ExtResource("2_xnv6s")
-centered = false
-
-[node name="Sky3" type="Sprite2D" parent="Background/Sky" unique_id=342347625]
-scale = Vector2(2, 2)
-texture = ExtResource("3_6lk74")
-centered = false
 
 [node name="Sky4" type="Sprite2D" parent="Background/Sky" unique_id=1099016958]
 scale = Vector2(2, 2)
@@ -322,34 +291,11 @@ scale = Vector2(2, 2)
 texture = ExtResource("7_tn25f")
 centered = false
 
-[node name="Sky8" type="Sprite2D" parent="Background/Sky" unique_id=1895087825]
-scale = Vector2(2, 2)
-texture = ExtResource("8_5b1db")
-centered = false
-
 [node name="Clouds" type="Parallax2D" parent="Background" unique_id=1333308321]
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(576, 0)
 repeat_times = 3
 script = ExtResource("9_etc3t")
-
-[node name="Cloud1" type="Sprite2D" parent="Background/Clouds" unique_id=464176378]
-position = Vector2(0, 60)
-scale = Vector2(2, 2)
-texture = ExtResource("10_go57r")
-centered = false
-
-[node name="Cloud2" type="Sprite2D" parent="Background/Clouds" unique_id=1861532854]
-position = Vector2(0, 60)
-scale = Vector2(2, 2)
-texture = ExtResource("11_58bux")
-centered = false
-
-[node name="Cloud3" type="Sprite2D" parent="Background/Clouds" unique_id=932378663]
-position = Vector2(0, 60)
-scale = Vector2(2, 2)
-texture = ExtResource("12_7wm5o")
-centered = false
 
 [node name="Cloud4" type="Sprite2D" parent="Background/Clouds" unique_id=1655758365]
 position = Vector2(0, 60)
@@ -375,33 +321,12 @@ scale = Vector2(2, 2)
 texture = ExtResource("16_30fb6")
 centered = false
 
-[node name="Cloud8" type="Sprite2D" parent="Background/Clouds" unique_id=1311310014]
-position = Vector2(0, 60)
-scale = Vector2(2, 2)
-texture = ExtResource("17_yuxxq")
-centered = false
-
 [node name="LargeClouds" type="Parallax2D" parent="Background" unique_id=272929460]
 scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(-53, 3)
 repeat_size = Vector2(576, 0)
 repeat_times = 3
 script = ExtResource("18_v4jxo")
-
-[node name="LargeCloud1" type="Sprite2D" parent="Background/LargeClouds" unique_id=241579763]
-scale = Vector2(2, 2)
-texture = ExtResource("19_lv1ek")
-centered = false
-
-[node name="LargeCloud2" type="Sprite2D" parent="Background/LargeClouds" unique_id=1450952866]
-scale = Vector2(2, 2)
-texture = ExtResource("20_ri7w7")
-centered = false
-
-[node name="LargeCloud3" type="Sprite2D" parent="Background/LargeClouds" unique_id=205348656]
-scale = Vector2(2, 2)
-texture = ExtResource("21_gxpvt")
-centered = false
 
 [node name="LargeCloud4" type="Sprite2D" parent="Background/LargeClouds" unique_id=890520304]
 scale = Vector2(2, 2)
@@ -421,11 +346,6 @@ centered = false
 [node name="LargeCloud7" type="Sprite2D" parent="Background/LargeClouds" unique_id=393986922]
 scale = Vector2(2, 2)
 texture = ExtResource("25_a1fvl")
-centered = false
-
-[node name="LargeCloud8" type="Sprite2D" parent="Background/LargeClouds" unique_id=589323568]
-scale = Vector2(2, 2)
-texture = ExtResource("26_rcxxg")
 centered = false
 
 [node name="decor" type="Node2D" parent="." unique_id=21316832]

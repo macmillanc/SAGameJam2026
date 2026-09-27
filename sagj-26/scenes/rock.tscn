@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ds6otngskbbbw" path="res://assets/rock/New Piskel-6.png" id="5_h6o6c"]
 [ext_resource type="Texture2D" uid="uid://cdgr4w8hdo02g" path="res://assets/rock/New Piskel-7.png" id="6_88vqh"]
 [ext_resource type="Script" uid="uid://b2uo3t5eps23q" path="res://scripts/StateMachine.gd" id="7_galge"]
+[ext_resource type="Script" uid="uid://f5scytaclprt" path="res://scenes/camera.gd" id="8_8c0lt"]
 [ext_resource type="Script" uid="uid://c6pde3lk8drr0" path="res://scripts/idle.gd" id="8_b84md"]
 [ext_resource type="Script" uid="uid://drn4wv0f1sem4" path="res://scripts/roll.gd" id="9_pdvy2"]
 [ext_resource type="Script" uid="uid://dnxmohm1pwtp8" path="res://scripts/air.gd" id="10_8c0lt"]
@@ -43,9 +44,12 @@ shape = SubResource("CircleShape2D_ik6fu")
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_mek2u")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=694843621]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=694843621 node_paths=PackedStringArray("target_node")]
 position = Vector2(0, -137)
 position_smoothing_enabled = true
+script = ExtResource("8_8c0lt")
+target_node = NodePath("..")
+look_ahead_speed = 1.5
 
 [node name="States" type="Node2D" parent="." unique_id=1025934399 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_galge")

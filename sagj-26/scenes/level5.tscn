@@ -520,23 +520,19 @@ script = ExtResource("35_qx5iu")
 [node name="Spring" parent="Springs" unique_id=788447662 instance=ExtResource("36_qx5iu")]
 position = Vector2(-2657, 512)
 rotation = 6.279006
-jump = 20000
 
 [node name="Spring4" parent="Springs" unique_id=685297381 instance=ExtResource("36_qx5iu")]
 position = Vector2(2208.9998, 191.00002)
 rotation = 6.279006
-jump = 10000
 
 [node name="Spring2" parent="Springs" unique_id=1713123886 instance=ExtResource("36_qx5iu")]
 position = Vector2(-9709.001, 5.999939)
 rotation = 6.279006
-jump = 20000
 
 [node name="Spring3" parent="Springs" unique_id=1238185155 instance=ExtResource("36_qx5iu")]
 position = Vector2(-8756.001, -660)
 rotation = 6.279006
 scale = Vector2(20, 1)
-jump = 20000
 
 [node name="Endings" type="Node2D" parent="." unique_id=653532861]
 
