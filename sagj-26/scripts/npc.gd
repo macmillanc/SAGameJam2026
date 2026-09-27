@@ -35,8 +35,13 @@ const LEVEL_4_LINES: Array[String] = [
 	"Well good we got out of the giant evil factory",
 	"I mean we still have no idea of where they could have gone",
 	"But being confused is better than burning to death in acid XD"
-	
-	
+]
+
+
+const LEVEL_5_LINES: Array[String] = [
+	"It seems we've reached as far as we can go",
+	"All we can do is climb this volcano and hope that they're at the top",
+	"Good luck ;)"
 ]
 
 const DEFAULT_LINES: Array[String] = [
@@ -63,6 +68,8 @@ func _on_interact():
 			active_lines = LEVEL_3_LINES
 		4:
 			active_lines = LEVEL_4_LINES
+		5:
+			active_lines = LEVEL_5_LINES
 		# Add more levels here as you build them (e.g., 3: LEVEL_3_LINES)
 
 	# 4. Start the dialog with the selected lines

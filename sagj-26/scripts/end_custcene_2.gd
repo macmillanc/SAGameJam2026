@@ -15,7 +15,8 @@ func _ready() -> void:
 	
 	# Connect to window resizing so it updates if the user resizes the window
 	get_viewport().size_changed.connect(fit_to_screen)
-	animated_sprite_2d.play("cutscene_one")
+
+	animated_sprite_2d.play("end_scene")
 
 
 func fit_to_screen() -> void:
@@ -38,7 +39,4 @@ func fit_to_screen() -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if Global.highest_level == 0:
-		SceneManager.change_scene("res://scenes/map.tscn")
-		return
 	SceneManager.change_scene(map_scene_path)

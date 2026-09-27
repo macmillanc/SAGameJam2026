@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var level_index: int = 0 
-@export_file("*.tscn") var level_select_scene: String = "res://scenes/score_screen.tscn"
+@export_file("*.tscn") var level_select_scene: String = "res://cutscene_1.tscn"
 
 var triggered: bool = false
 

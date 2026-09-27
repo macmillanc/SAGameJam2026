@@ -64,6 +64,13 @@ func _complete_level(player: Node2D) -> void:
 	if not Global.level_scores.has(level_index) or final_score > Global.level_scores[level_index]:
 		Global.level_scores[level_index] = final_score
 
+	# 6. Progression logic
+	Global.season = 0
+	Global.highest_level = level_index + 1
+	Global.season_transitions = 0
+	SceneManager.change_scene("res://cutscene_2.tscn")
+	return
+
 	if level_index + 1 > Global.highest_level:
 		Global.highest_level = level_index + 1
 
@@ -73,8 +80,6 @@ func _complete_level(player: Node2D) -> void:
 	# RESET SEASONS WHEN LEAVING THE LEVEL
 	Global.season = 0
 	Global.season_transitions = 0
-	MusicManager.stop_music()
-	MusicManager.set_game_speed_pitch(1.0)
 
 	# Go to the score screen scene
 	SceneManager.change_scene(level_select_scene)

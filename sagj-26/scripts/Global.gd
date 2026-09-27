@@ -8,6 +8,21 @@ var highest_level: int = 0
 # This NEVER goes backwards when the season loops back to Spring.
 var season_transitions: int = 0
 
+# Stores the chosen ending ("left" or "right")
+var ending_choice: String = ""
+
+# Define your cutscene scene paths here
+const LEFT_ENDING_SCENE: String = "res://scenes/cutscenes/LeftEndingCutscene.tscn"
+const RIGHT_ENDING_SCENE: String = "res://scenes/cutscenes/RightEndingCutscene.tscn"
+
+func determine_ending(player_x_position: float) -> void:
+	if player_x_position < 0.0:
+		ending_choice = "left"
+		get_tree().change_scene_to_file(LEFT_ENDING_SCENE)
+	else:
+		ending_choice = "right"
+		get_tree().change_scene_to_file(RIGHT_ENDING_SCENE)
+
 var level_scores: Dictionary = {} # Format: { level_num: best_score }
 var last_run_stats: Dictionary = {} # Stores stats for the summary screen
 
@@ -25,7 +40,7 @@ var min_stage: Dictionary = {
 	2: 0,
 	3: 2,
 	4: 0,
-	5: 0
+	5: 1
 }
 
 
@@ -35,7 +50,7 @@ var level_starting_seasons: Dictionary = {
 	2: 1, # Deep Water starts in Summer
 	3: 2, # Pollution inc starts in Autumn
 	4: 3, # Deserted starts in Winter
-	5: 0  # Mt Doom starts in Spring
+	5: 5  # Mt Doom starts in Spring
 }
 
 

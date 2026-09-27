@@ -22,7 +22,7 @@ extends CharacterBody2D
 @export var decel: float = 300.0
 @export var base_jump_velocity: float = -350.0
 @export var fall_limit: float = 550.0
-@export var max_lives: int = 5
+@export var max_lives: int = 10
 @export_file("*.tscn") var game_over_scene: String
 
 var current_lives: int
@@ -87,7 +87,7 @@ func _setup_level_label() -> void:
 	
 	var level_num: int = 1
 	if match_result:
-		level_num = match_result.get_string().to_int()
+		level_num = match_result.get_string().to_int() # <--- Fix: assign to level_num here!
 		
 	# Lookup level name from Global
 	var level_name: String = "Unknown Area"

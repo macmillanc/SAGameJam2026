@@ -69,7 +69,7 @@ shader_parameter/pebble_size = 2.0
 shader_parameter/threshold = 0.15
 shader_parameter/noise_strength = 0.04
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig6gj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n15wr"]
 resource_name = "Collision"
 texture = ExtResource("29_sh1tq")
 texture_region_size = Vector2i(64, 64)
@@ -90,7 +90,7 @@ texture_region_size = Vector2i(64, 64)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0.6209221, 32, 0.6209221, 32, 32, -32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nso2f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hojt"]
 resource_name = "No-Collision"
 texture = ExtResource("29_sh1tq")
 texture_region_size = Vector2i(64, 64)
@@ -106,8 +106,8 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_sai06"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ig6gj")
-sources/1 = SubResource("TileSetAtlasSource_nso2f")
+sources/0 = SubResource("TileSetAtlasSource_n15wr")
+sources/1 = SubResource("TileSetAtlasSource_4hojt")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ig6gj"]
 shader = ExtResource("31_ro5wt")
@@ -124,7 +124,7 @@ shader_parameter/pebble_size = 2.0
 shader_parameter/threshold = 0.15
 shader_parameter/noise_strength = 0.04
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sai06"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lep3q"]
 texture = ExtResource("29_sh1tq")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -147,7 +147,7 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_hasdo"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/4 = SubResource("TileSetAtlasSource_sai06")
+sources/4 = SubResource("TileSetAtlasSource_lep3q")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fx8r"]
 texture = ExtResource("42_aq6pr")
@@ -243,7 +243,7 @@ level_music = ExtResource("2_ro5wt")
 [node name="Background" type="Node2D" parent="." unique_id=467930393 node_paths=PackedStringArray("sky_sprites", "parallax_cloud_sprites", "large_cloud_sprites")]
 z_index = -10
 position = Vector2(0, -100)
-scale = Vector2(0.75, 1.5)
+scale = Vector2(1, 2)
 script = ExtResource("1_bx2t0")
 sky_sprites = [NodePath("Sky/Sky1"), NodePath("Sky/Sky2"), NodePath("Sky/Sky3"), NodePath("Sky/Sky4"), NodePath("Sky/Sky5"), NodePath("Sky/Sky6"), NodePath("Sky/Sky7"), NodePath("Sky/Sky8")]
 parallax_cloud_sprites = [NodePath("Clouds/Cloud1"), NodePath("Clouds/Cloud2"), NodePath("Clouds/Cloud3"), NodePath("Clouds/Cloud4"), NodePath("Clouds/Cloud5"), NodePath("Clouds/Cloud6"), NodePath("Clouds/Cloud7"), NodePath("Clouds/Cloud8")]
@@ -434,7 +434,7 @@ tree_sprites = Array[Texture2D]([ExtResource("34_n15wr"), ExtResource("34_n15wr"
 [node name="Campfire" type="Node2D" parent="decor" unique_id=514600169]
 
 [node name="Rock_Scene" parent="." unique_id=1357846045 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("27_ih1td")]
-position = Vector2(-38, -37)
+position = Vector2(-338, -41)
 canvas_modulate = NodePath("../CanvasModulate")
 
 [node name="Platforms" type="TileMapLayer" parent="." unique_id=359255582]
@@ -453,7 +453,7 @@ script = ExtResource("31_nso2f")
 
 [node name="End" parent="." unique_id=1537407309 instance=ExtResource("32_sai06")]
 position = Vector2(4156, -50)
-level_index = 2
+level_index = 3
 
 [node name="Npc" parent="." unique_id=403265676 instance=ExtResource("33_hasdo")]
 position = Vector2(-157, -30)

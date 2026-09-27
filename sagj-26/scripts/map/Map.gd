@@ -18,12 +18,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_handle_camera_movement(delta)
 
-func _input(event: InputEvent) -> void:
-	# Dev Command: Spacebar unlocks next stage
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_SPACE:
-			_dev_unlock_next_level()
-
 func _dev_unlock_next_level() -> void:
 	var total_levels: int = levels_container.get_child_count() if levels_container else 5
 	

@@ -58,6 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://m0qw3glv0jcp" path="res://scenes/door_and_button.tscn" id="40_5b1db"]
 [ext_resource type="AudioStream" uid="uid://c5nep0bn8vd50" path="res://assets/brackeys_platformer_assets/music/Week 21 - Freefall GLIDE.ogg" id="44_7wm5o"]
 [ext_resource type="PackedScene" uid="uid://q4k2lqrst3eh" path="res://scenes/campfire.tscn" id="45_p8hhf"]
+[ext_resource type="AudioStream" uid="uid://yn8vsnvai1w2" path="res://assets/brackeys_platformer_assets/music/Week 22 - The Walking Dunes UNBLINKING SUN.ogg" id="59_xctje"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8jrt"]
 load_path = "res://.godot/imported/1.png-aeb9bb341bec8578147387f15665ca8f.ctex"
@@ -684,7 +685,7 @@ position = Vector2(8577, -369)
 current_stage = 1
 
 [node name="Rock_Scene" parent="." unique_id=1357846045 node_paths=PackedStringArray("canvas_modulate") instance=ExtResource("2_2k3dv")]
-position = Vector2(193, -512)
+position = Vector2(185, -915)
 canvas_modulate = NodePath("../CanvasModulate")
 
 [node name="factory" type="TileMapLayer" parent="." unique_id=1565948397]
@@ -744,5 +745,12 @@ position = Vector2(7002, -573)
 stream = ExtResource("44_7wm5o")
 autoplay = true
 max_distance = 3000.0
+
+[node name="Second_Phase_Music2" type="AudioStreamPlayer2D" parent="." unique_id=1594716816]
+position = Vector2(11860, -298)
+stream = ExtResource("59_xctje")
+pitch_scale = 0.6
+autoplay = true
+max_distance = 4000.0
 
 [editable path="DoorAndButton"]

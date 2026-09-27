@@ -1,14 +1,14 @@
 class_name ScoreSummaryScreen
 extends Control
 
-@onready var title_label: Label = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/Label
-@onready var time_label: Label = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/time_label
-@onready var season_label: Label = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/season_label
-@onready var time_mod_label: Label = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/time_manipulation_label
-@onready var death_label: Label = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/death_label
-@onready var score_label: Label = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/score_label
-@onready var retry_button: Button = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/retry
-@onready var map_button: Button = $ColorRect/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/quit
+@onready var title_label: Label = $CenterContainer/PanelContainer/VBoxContainer/Label
+@onready var time_label: Label = $CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/time_label
+@onready var season_label: Label = $CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/season_label
+@onready var time_mod_label: Label = $CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/time_manipulation_label
+@onready var death_label: Label = $CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/death_label
+@onready var score_label: Label = $CenterContainer/PanelContainer/VBoxContainer/score_label
+@onready var retry_button: Button = $CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/retry
+@onready var map_button: Button = $CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/quit
 
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _ready() -> void:
 	if Global.last_run_stats.is_empty():
 		return
 		
-	var lvl_num = Global.last_run_stats.get("level_num", 1)
+	var lvl_num = Global.last_run_stats.get("level_num", 1) + 1
 	var score = Global.last_run_stats.get("score", 0)
 	var time_sec = Global.last_run_stats.get("time", 0.0)
 	var seasons = Global.last_run_stats.get("seasons", 0)
@@ -36,7 +36,7 @@ func _ready() -> void:
 	time_label.text = "Time Taken: %02d:%02d:%02d" % [minutes, seconds, ms]
 	
 	if death_label:
-		death_label.text = "💀 Deaths: %d" % deaths
+		death_label.text = "Deaths: %d" % deaths
 		
 	season_label.text = "Seasons Used: %d" % [seasons]
 	time_mod_label.text = "Time-Mods Used: %d" % [time_mods]
@@ -47,6 +47,18 @@ func _ready() -> void:
 func _on_retry_button_pressed() -> void:
 	SceneManager.retry_level()
 
-
 func _on_quit_button_pressed() -> void:
+	var completed_level = Global.last_run_stats.get("level_num", 1)
+	
+	print("COMPLETED LEVEL FROM STATS: ", completed_level)
+	print("HIGHEST LEVEL BEFORE: ", Global.highest_level)
+
+	var newly_unlocked_level = completed_level + 1
+
+	print("NEWLY UNLOCKED LEVEL: ", newly_unlocked_level)
+
+	Global.highest_level = max(Global.highest_level, newly_unlocked_level)
+
+	print("HIGHEST LEVEL AFTER: ", Global.highest_level)
+
 	SceneManager.go_to_map()

@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cpq4cxwxnqlsg" path="res://assets/brackeys_platformer_assets/music/Week 24 - Pull Me Down GRAVITY.ogg" id="2_2lpho"]
 [ext_resource type="Script" uid="uid://df4sl2awnsqws" path="res://scripts/map/LevelNode.gd" id="3_2lpho"]
 [ext_resource type="Texture2D" uid="uid://c1e1hpe1poeit" path="res://assets/UI-backgrounds/Levels.png" id="4_0cso3"]
+[ext_resource type="Texture2D" uid="uid://bidnlh5vsy7ll" path="res://assets/Logo.png" id="6_2lpho"]
 
 [node name="Map" type="Node2D" unique_id=704902217 node_paths=PackedStringArray("line_drawer", "levels_container", "camera")]
 script = ExtResource("1_0cso3")
@@ -66,6 +67,13 @@ limit_left = -1000
 limit_top = -1000
 limit_right = 1000
 limit_bottom = 1000
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1408953323]
+
+[node name="Logo" type="Sprite2D" parent="CanvasLayer2" unique_id=372540547]
+scale = Vector2(2, 2)
+texture = ExtResource("6_2lpho")
+offset = Vector2(50, 50)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1128884306]
 layer = -10
